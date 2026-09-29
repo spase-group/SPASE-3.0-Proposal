@@ -1,0 +1,1278 @@
+{
+    "@context": {
+        "adms": "http://www.w3.org/ns/adms#",
+        "dbo": "http://dbpedia.org/ontology/",
+        "dbr": "http://dbpedia.org/resource/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "geo": "http://www.opengis.net/ont/geosparql#",
+        "iop": "https://w3id.org/iadopt/ont/",
+        "locn": "http://www.w3.org/ns/locn#",
+        "org": "http://www.w3.org/ns/org#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#",
+        "qudt": "https://qudt.org/schema/qudt/",
+        "qudtqk": "https://qudt.org/vocab/quantitykind/",
+        "qudtu": "https://qudt.org/vocab/unit/",
+        "schema": "http://schema.org/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "sosa": "http://www.w3.org/ns/sosa/",
+        "spase": "https://github.com/spase-group/SPASE-3.0-Proposal/schema/",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+        "dcterms:conformsTo": {
+            "@id": "dcterms:conformsTo",
+            "@type": "@id"
+        },
+        "foaf:primaryTopic": {
+            "@id": "foaf:primaryTopic",
+            "@type": "@id"
+        },
+        "foaf:page": {
+            "@id": "foaf:page",
+            "@type": "@id"
+        },
+        "dcterms:issued": {
+            "@id": "dcterms:issued",
+            "@type": "xsd:dateTime"
+        },
+        "dcterms:modified": {
+            "@id": "dcterms:modified",
+            "@type": "xsd:dateTime"
+        },
+        "dcterms:accessRights": {
+            "@id": "dcterms:accessRights",
+            "@type": "@id"
+        },
+        "dcterms:license": {
+            "@id": "dcterms:license",
+            "@type": "@id"
+        },
+        "adms:status": {
+            "@id": "adms:status",
+            "@type": "@id"
+        },
+        "dcterms:identifier": {
+            "@id": "dcterms:identifier"
+        },
+        "adms:identifier": {
+            "@id": "adms:identifier",
+            "@type": "@id"
+        },
+        "dcterms:type": {
+            "@id": "dcterms:type",
+            "@type": "@id"
+        },
+        "dcterms:provenance": {
+            "@id": "dcterms:provenance",
+            "@type": "@id"
+        },
+        "spase:processingLevel": {
+            "@id": "spase:processingLevel",
+            "@type": "@id"
+        },
+        "dcat:landingPage": {
+            "@id": "dcat:landingPage",
+            "@type": "@id"
+        },
+        "dcterms:publisher": {
+            "@id": "dcterms:publisher",
+            "@type": "@id"
+        },
+        "dcterms:creator": {
+            "@id": "dcterms:creator",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "dcterms:contributor": {
+            "@id": "dcterms:contributor",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "org:memberOf": {
+            "@id": "org:memberOf",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "prov:qualifiedAttribution": {
+            "@id": "prov:qualifiedAttribution",
+            "@type": "@id"
+        },
+        "dcat:contactPoint": {
+            "@id": "dcat:contactPoint",
+            "@type": "@id"
+        },
+        "schema:funding": {
+            "@id": "schema:funding",
+            "@type": "@id"
+        },
+        "spase:measurementType": {
+            "@id": "spase:measurementType",
+            "@type": "@id"
+        },
+        "spase:phenomenonType": {
+            "@id": "spase:phenomenonType",
+            "@type": "@id"
+        },
+        "spase:observedRange": {
+            "@id": "spase:observedRange",
+            "@type": "@id"
+        },
+        "dcterms:subject": {
+            "@id": "dcterms:subject",
+            "@type": "@id"
+        },
+        "dcterms:temporal": {
+            "@id": "dcterms:temporal",
+            "@type": "@id"
+        },
+        "dcat:temporalResolution": {
+            "@id": "dcat:temporalResolution",
+            "@type": "xsd:duration"
+        },
+        "spase:exposure": {
+            "@id": "spase:exposure",
+            "@type": "xsd:duration"
+        },
+        "dcat:startDate": {
+            "@id": "dcat:startDate",
+            "@type": "xsd:dateTime"
+        },
+        "dcat:endDate": {
+            "@id": "dcat:endDate",
+            "@type": "xsd:dateTime"
+        },
+        "spase:relativeEndDate": {
+            "@id": "spase:relativeEndDate",
+            "@type": "xsd:duration"
+        },
+        "dcterms:spatial": {
+            "@id": "dcterms:spatial",
+            "@type": "@id"
+        },
+        "dcat:centroid": {
+            "@id": "dcat:centroid",
+            "@type": "geo:wktLiteral"
+        },
+        "dcat:bbox": {
+            "@id": "dcat:bbox",
+            "@type": "geo:wktLiteral"
+        },
+        "locn:geometry": {
+            "@id": "locn:geometry",
+            "@type": "geo:wktLiteral"
+        },
+        "dcat:distribution": {
+            "@id": "dcat:distribution",
+            "@type": "@id"
+        },
+        "dcat:accessURL": {
+            "@id": "dcat:accessURL",
+            "@type": "@id"
+        },
+        "dcterms:format": {
+            "@id": "dcterms:format",
+            "@type": "@id"
+        },
+        "dcat:accessService": {
+            "@id": "dcat:accessService",
+            "@type": "@id"
+        },
+        "dcat:servesDataset": {
+            "@id": "dcat:servesDataset",
+            "@type": "@id"
+        },
+        "dcat:endpointURL": {
+            "@id": "dcat:endpointURL",
+            "@type": "@id"
+        },
+        "dcat:endpointDescription": {
+            "@id": "dcat:endpointDescription",
+            "@type": "@id"
+        },
+        "dcterms:qualifiedRelation": {
+            "@id": "dcterms:qualifiedRelation",
+            "@type": "@id"
+        },
+        "dcterms:relation": {
+            "@id": "dcterms:relation",
+            "@type": "@id"
+        },
+        "dcat:hadRole": {
+            "@id": "dcat:hadRole",
+            "@type": "@id"
+        },
+        "prov:wasGeneratedBy": {
+            "@id": "prov:wasGeneratedBy",
+            "@type": "@id"
+        },
+        "prov:hadPlan": {
+            "@id": "prov:hadPlan",
+            "@type": "@id"
+        },
+        "prov:used": {
+            "@id": "prov:used",
+            "@type": "@id"
+        },
+        "dcterms:hasPart": {
+            "@id": "dcterms:hasPart",
+            "@type": "@id"
+        },
+        "dcterms:isPartOf": {
+            "@id": "dcterms:isPartOf",
+            "@type": "@id"
+        },
+        "dcterms:hasVersion": {
+            "@id": "dcterms:hasVersion",
+            "@type": "@id"
+        },
+        "dcterms:isVersionOf": {
+            "@id": "dcterms:isVersionOf",
+            "@type": "@id"
+        },
+        "dcterms:replaces": {
+            "@id": "dcterms:replaces",
+            "@type": "@id"
+        },
+        "dcterms:isReplacedBy": {
+            "@id": "dcterms:isReplacedBy",
+            "@type": "@id"
+        },
+        "dcterms:requires": {
+            "@id": "dcterms:requires",
+            "@type": "@id"
+        },
+        "dcterms:isRequiredBy": {
+            "@id": "dcterms:isRequiredBy",
+            "@type": "@id"
+        },
+        "prov:wasDerivedFrom": {
+            "@id": "prov:wasDerivedFrom",
+            "@type": "@id"
+        },
+        "sosa:madeBySensor": {
+            "@id": "sosa:madeBySensor",
+            "@type": "@id"
+        },
+        "sosa:hasMember": {
+            "@id": "sosa:hasMember",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "sosa:observedProperty": {
+            "@id": "sosa:observedProperty",
+            "@type": "@id"
+        },
+        "sosa:hasResult": {
+            "@id": "sosa:hasResult",
+            "@type": "@id"
+        },
+        "iop:hasObjectOfInterest": {
+            "@id": "iop:hasObjectOfInterest",
+            "@type": "@id"
+        },
+        "iop:hasProperty": {
+            "@id": "iop:hasProperty",
+            "@type": "@id"
+        },
+        "iop:hasConstraint": {
+            "@id": "iop:hasConstraint",
+            "@type": "@id"
+        },
+        "iop:constrains": {
+            "@id": "iop:constrains",
+            "@type": "@id"
+        },
+        "qudt:hasQuantityKind": {
+            "@id": "qudt:hasQuantityKind",
+            "@type": "@id"
+        },
+        "qudt:quantityValue": {
+            "@id": "qudt:quantityValue",
+            "@type": "@id"
+        },
+        "qudt:hasUnit": {
+            "@id": "qudt:hasUnit",
+            "@type": "@id"
+        },
+        "qudt:element": {
+            "@id": "qudt:element",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "qudt:dimensions": {
+            "@id": "qudt:dimensions",
+            "@container": "@list",
+            "@type": "xsd:integer"
+        },
+        "qudt:dataOrder": {
+            "@id": "qudt:dataOrder",
+            "@type": "@id"
+        },
+        "qudt:order": {
+            "@id": "qudt:order",
+            "@type": "xsd:integer"
+        },
+        "qudt:coordinateSystem": {
+            "@id": "qudt:coordinateSystem",
+            "@type": "@id"
+        },
+        "skos:inScheme": {
+            "@id": "skos:inScheme",
+            "@type": "@id"
+        },
+        "skos:exactMatch": {
+            "@id": "skos:exactMatch",
+            "@type": "@id"
+        }
+    },
+   "@graph": [
+     {
+       "@id": "https://spase-metadata.org/NASA/NumericalData/PUNCH/NFI_WFI_Mosaic/Level3/CAM/PT32M.xml",
+       "@type": "dcat:CatalogRecord",
+       "owl:sameAs": "https://spase-metadata.org/NASA/NumericalData/PUNCH/NFI_WFI_Mosaic/Level3/CAM/PT32M",
+       "dcterms:conformsTo": "https://spase-group.org/data/model/spase3.0/",
+       "foaf:primaryTopic": "https://doi.org/10.48322/bbrw-k528",
+       "dcterms:issued": "2026-04-14T00:08:46Z",
+       "dcterms:modified": "2026-04-30T14:30:23Z",
+       "dcterms:accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+       "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+       "dcterms:creator": {
+        "@list": [
+          {
+              "@id": "https://orcid.org/0000-0003-0875-2023",
+              "@type": "foaf:Person",
+              "foaf:givenName": "Rebecca",
+              "foaf:familyName": "Ringuette",
+              "foaf:mbox": "rebecca.ringuette@nasa.gov",
+              "org:memberOf": [
+                 {
+                    "@id": "https://ror.org/04xbq1n92",
+                    "@type": "foaf:Organization",
+                    "foaf:name": "Data Integration and Services for Heliophysics",
+                    "dcterms:identifier": "https://ror.org/04xbq1n92"
+                 }
+              ]
+           }
+        ]
+     }
+    },
+    {
+      "@id": "https://doi.org/10.48322/bbrw-k528",
+      "@type": [
+         "dcat:Dataset", 
+         "sosa:ObservationCollection"
+      ],
+      "dcterms:conformsTo": "https://spase-group.org/data/model/spase-3.0/",
+      "adms:status": "http://purl.org/adms/status/Completed",
+      "dcterms:identifier": "https://doi.org/10.48322/bbrw-k528",
+      "adms:identifier": [
+        {
+           "@type": "adms:Identifier",
+           "dcterms:creator": "https://spase-group.org/",
+           "skos:notation": "spase://NASA/NumericalData/PUNCH/NFI_WFI_Mosaic/Level3/CAM/PT32M"
+        },
+        {
+           "@type": "adms:Identifier",
+           "adms:schemaAgency": "SWrI",
+           "skos:notation": "obsID: swri_PUNCH_20260523_AB157"
+        }        
+     ],
+     "dcterms:type": [{
+       "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#NumericalData",
+       "@type": "skos:Concept",
+       "skos:prefLabel": "NumericalData"
+     },
+     {
+       "@type": "skos:Concept",
+       "skos:prefLabel": "Catalog"
+     }],
+     "dcterms:title": "PUNCH Level 3 Clear Low-Noise Mosaic Data",
+     "dcterms:description": "PUNCH level 3 science low-noise mosaic images in the clear polarization state. White light unpolarized intensity with F-corona subtraction and without starfield subtraction. This dataset is a member of the Collection of PUNCH Level-3 Science Image dataset. Per instructions from the PUNCH team, reference to the entire Collection (including the DOI, see below) should be used when this and other member datasets in the Collection are needed for citation purposes: Southwest Research Institute (2025). PUNCH NFI-WFI Level-3 Science images [Collection]. Solar Data Analysis Center. https://doi.org/10.48322/nnv7-bn21. Access date (assigned on date of landing page access).",
+     "dcterms:issued": "2022-01-01T00:00:00Z",
+     "dcterms:modified": "2025-05-22Z",
+     "dcat:version": "2.0",
+     "adms:versionNotes": "A subset of the files were reprocessed using new calibration values. See the FITS metadata for detailed description of changes.",
+     "spase:processingLevel": {
+        "@type": "skos:Concept",
+        "skos:prefLabel": "3"
+     },
+     "dcat:landingPage": "https://helio.data.nasa.gov/dataset/PUNCH_NFI_WFI_Mosaic_Level3_CIM_PT8M",
+     "dcterms:publisher": {
+        "@id": "https://ror.org/04rvfc379",
+        "@type": "foaf:Organization",
+        "foaf:name": "Solar Data Analysis Center",
+        "dcterms:identifier": "https://ror.org/04rvfc379"
+     },
+     "dcterms:creator": {
+        "@list": [
+          {
+              "@id": "https://orcid.org/0000-0002-7164-2786",
+              "@type": "foaf:Person",
+              "foaf:givenName": "Craig E.",
+              "foaf:familyName": "DeForest",
+              "foaf:mbox": "craig.deforest@swri.org",
+              "org:memberOf": [
+                 {
+                    "@id": "https://ror.org/03tghng59",
+                    "@type": "foaf:Organization",
+                    "foaf:name": "Southwest Research Institute",
+                    "dcterms:identifier": "https://ror.org/03tghng59"
+                 }
+              ]
+           }
+        ]
+     },
+     "dcterms:contributor": [
+        {
+           "@id": "https://orcid.org/0000-0003-3410-7650",
+           "@type": "foaf:Person",
+           "foaf:givenName": "J. Marcus",
+           "foaf:familyName": "Hughes"
+        }
+     ],
+     "prov:qualifiedAttribution": [
+        {
+           "@type": "prov:Attribution",
+           "prov:agent": {
+              "@id": "https://orcid.org/0000-0003-3410-7650"
+           },
+           "dcat:hadRole": [
+              {
+                 "@id": "https://www.wikidata.org/wiki/Q743438",
+                 "@type": "dcat:Role",
+                 "skos:prefLabel": "Team Leader",
+                 "skos:notation": "team leader",
+                 "skos:inScheme": "https://www.wikidata.org/"
+              }
+           ]
+        }
+     ],
+     "schema:funding" : [
+       {
+          "@type": "schema:MonetaryGrant",
+          "schema:funder": {
+             "@id" : "https://ror.org/027ka1x80",
+             "@type": "foaf:Organization",
+             "foaf:name": "National Aeronautics and Space Administration",
+             "dcterms:identifier": "https://ror.org/027ka1x80"
+          },
+          "dcterms:title": "PUNCH"
+      }],
+     "spase:measurementType": [
+        {
+           "@type": "skos:Concept",
+           "skos:prefLabel": "Unpolarized low noise mosaic"
+        }
+     ],
+     "spase:phenomenonType": [
+        {
+           "@type": "skos:Concept",
+           "skos:prefLabel": "Coronal Mass Ejection",
+           "skos:notation": "CoronalMassEjection",
+           "skos:inScheme": "https://github.com/rmcgranaghan/Helio-KNOW/blob/main/data-models/heliodata_region_taxonomy-v2.0.ttl"
+        },
+        {
+           "@id": "http://astrothesaurus.org/uat/1496",
+           "@type": "skos:Concept",
+           "skos:prefLabel": "Solar flares",
+           "skos:notation": "1496",
+           "skos:inScheme": "http://astrothesaurus.org/uat/"
+        }
+     ],
+     "spase:observedRange": [
+       {
+         "@type": [
+           "qudt:Quantity", 
+           "skos:Concept"
+         ],
+         "skos:prefLabel": "Visible light at 530 nm",
+         "qudt:hasQuantityKind": "qudtqk:Wavelength",
+         "qudt:quantityValue":{
+           "@type": "qudt:QuantityValue",
+           "qudt:value": 530,
+           "qudt:hasUnit": {
+             "@type": "qudt:Unit",
+             "skos:exactMatch": "qudtu:NanoM",
+             "skos:prefLabel": "nm"
+           }
+         }
+       },
+       {
+         "@id": "https://www.wikidata.org/wiki/Q76299",
+         "@type": "skos:Concept",
+         "skos:prefLabel": "Visible light"       
+       },
+       {
+         "@type": [
+           "qudt:Quantity", 
+           "skos:Concept"
+         ],
+         "skos:prefLabel": "Ultraviolet light at 211 Angstroms",
+         "qudt:hasQuantityKind": "qudtqk:Wavelength",
+         "qudt:quantityValue":{
+           "@type": "qudt:QuantityValue",
+           "qudt:value": 211,
+           "qudt:hasUnit": {
+             "@type": "qudt:Unit",
+             "skos:exactMatch": "qudtu:ANGSTROM",
+             "skos:prefLabel": "Angstrom"
+           }
+         }
+       },
+       {
+         "@id": "https://www.wikidata.org/wiki/Q11391",
+         "@type": "skos:Concept",
+         "skos:prefLabel": "Ultraviolet light"       
+       }       
+     ],
+     "dcterms:subject": [
+       {
+        "@id": "http://astrothesaurus.org/uat/1475",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Solar activity",
+        "skos:notation": "1475",
+        "skos:inScheme": "https://astrothesaurus.org/"
+      },
+      {
+        "@type": "skos:Concept",
+        "skos:prefLabel": "solar corona"
+      }
+     ],
+     "spase:exposure": "PT3S",
+     "dcterms:temporal": {
+        "@type": "dcterms:PeriodOfTime",
+        "dcat:startDate": "2026-02-20T00:00:29.063Z",
+        "dcat:stopDate": "2026-02-20T23:52:29.425Z"
+     },
+     "dcterms:spatial": [
+        {
+           "@id": "https://astrothesaurus.org/uat/1483",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Solar corona",
+           "skos:notation": "1483",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        }, 
+        {
+           "@id": "https://astrothesaurus.org/uat/2042",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Solar K Corona",
+           "skos:notation": "2042",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },
+        {
+           "@id": "https://astrothesaurus.org/uat/1991",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Solar F Corona",
+           "skos:notation": "1991",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },
+        {
+           "@id": "https://astrothesaurus.org/uat/1486",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Solar Coronal Streamers",
+           "skos:notation": "1486",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },
+        {
+           "@id": "https://astrothesaurus.org/uat/2039",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Solar Coronal Plumes",
+           "skos:notation": "2039",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },        
+        {
+           "@id": "https://astrothesaurus.org/uat/1534",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Solar Wind",
+           "skos:notation": "1534",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },
+        {
+           "@id": "https://astrothesaurus.org/uat/1872",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Fast Solar Wind",
+           "skos:notation": "1872",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },
+        {
+           "@id": "https://astrothesaurus.org/uat/1873",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Slow Solar Wind",
+           "skos:notation": "1873",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },
+        {
+           "@id": "https://astrothesaurus.org/uat/310",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Solar Coronal Mass Ejection",
+           "skos:notation": "310",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },
+        {
+           "@id": "https://astrothesaurus.org/uat/711",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Heliosphere",
+           "skos:notation": "711",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },       
+        {
+           "@id": "https://astrothesaurus.org/uat/1278",
+           "@type": [
+              "dcterms:Location",
+              "skos:Concept"
+           ],
+           "skos:prefLabel": "Polarimetry",
+           "skos:notation": "1278",
+           "skos:inScheme": "https://astrothesaurus.org/"
+        },        
+        {
+          "@type": [
+            "dcterms:Location",
+            "qudt:Coordinates"
+          ],
+          "qudt:element": {
+            "@list": [
+              {
+                "@type": "qudt:Quantity",
+                "qudt:hasQuantityKind":{
+                  "@type": [
+                    "qudt:QuantityKind",
+                    "skos:Concept"
+                  ],
+                  "skos:prefLabel": "Observer’s heliographic longitude",
+                  "skos:notation": "HGLN_OBS",
+                  "skos:inScheme": "https://solarnet.readthedocs.io/en/latest/generated/partc.html"
+                },
+                "qudt:quantityValue":{
+                  "@type": "qudt:QuantityValue",
+                  "qudt:value": 0,
+                  "qudt:hasUnit": {
+                    "@type": "qudt:Unit",
+                    "skos:exactMatch": "qudtu:DEG",
+                    "skos:notation": "deg",
+                    "dcterms:conformsTo": {
+                      "@id":"https://www.ivoa.net/documents/VOUnits/"
+                    }
+                  }
+                }
+              },
+              {
+                "@type": "qudt:Quantity",
+                "qudt:hasQuantityKind":{
+                  "@type": [
+                    "qudt:QuantityKind",
+                    "skos:Concept"
+                  ],
+                  "skos:prefLabel": "Observer’s heliographic latitude",
+                  "skos:notation": "HGLT_OBS",
+                  "skos:inScheme": "https://solarnet.readthedocs.io/en/latest/generated/partc.html"
+                },
+                "qudt:quantityValue":{
+                  "@type": "qudt:QuantityValue",
+                  "qudt:minInclusive": -7.04338857,
+                  "qudt:maxInclusive": -7.01250145,
+                  "qudt:hasUnit": {
+                    "@type": "qudt:Unit",
+                    "skos:exactMatch": "qudtu:DEG",
+                    "skos:notation": "deg",
+                    "dcterms:conformsTo": {
+                      "@id":"https://www.ivoa.net/documents/VOUnits/"
+                    }
+                  }
+                }
+              },
+              {
+                "@type": "qudt:Quantity",
+                "qudt:hasQuantityKind":{
+                  "@type": [
+                    "qudt:QuantityKind",
+                    "skos:Concept"
+                  ],
+                  "skos:prefLabel": "Distance to Sun (in meters)",
+                  "skos:notation": "DSUN_OBS",
+                  "skos:inScheme": "https://solarnet.readthedocs.io/en/latest/generated/partc.html"
+                },
+                "qudt:quantityValue":{
+                  "@type": "qudt:QuantityValue",
+                  "qudt:minInclusive": 1.47910713e+11,
+                  "qudt:maxInclusive": 1.47941514e+11,
+                  "qudt:hasUnit": {
+                    "@type": "qudt:Unit",
+                    "skos:exactMatch": "qudtu:M",
+                    "skos:notation": "m",
+                    "dcterms:conformsTo": {
+                      "@id":"https://www.ivoa.net/documents/VOUnits/"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "qudt:coordinateSystem": [{
+            "@type": "skos:Concept",
+            "skos:prefLabel": "Stonyhurst Heliographic",
+            "skos:notation": "StonyhurstHeliographic",
+            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateSystemName"
+          },
+          {
+            "@type": "skos:Concept",
+            "skos:prefLabel": "Spherical",
+            "skos:notation": "Spherical",
+            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateRepresentation"
+          }]
+        },
+        {
+          "@type": [
+            "dcterms:Location",
+            "qudt:Coordinates"
+          ],
+          "qudt:element": {
+            "@list": [
+              {
+                "@type": "qudt:Quantity",
+                "qudt:hasQuantityKind":{
+                  "@type": [
+                    "qudt:QuantityKind",
+                    "skos:Concept"
+                  ],
+                  "skos:prefLabel": "HCIX_OBS"
+                },
+                "qudt:quantityValue":{
+                  "@type": "qudt:QuantityValue",
+                  "qudt:minInclusive": 3.52363236e+10,
+                  "qudt:maxInclusive": 3.76953334e+10,
+                  "qudt:hasUnit": {
+                    "@type": "qudt:Unit",
+                    "skos:exactMatch": "qudtu:M",
+                    "skos:notation": "m",
+                    "dcterms:conformsTo": {
+                      "@id":"https://www.ivoa.net/documents/VOUnits/"
+                    }
+                  }
+                }
+              },
+              {
+                "@type": "qudt:Quantity",
+                "qudt:hasQuantityKind":{
+                  "@type": [
+                    "qudt:QuantityKind",
+                    "skos:Concept"
+                  ],
+                  "skos:prefLabel": "HCIY_OBS"
+                },
+                "qudt:quantityValue":{
+                  "@type": "qudt:QuantityValue",
+                  "qudt:minInclusive": 1.41882191e+11,
+                  "qudt:maxInclusive": 1.42534231e+11,
+                  "qudt:hasUnit": {
+                    "@type": "qudt:Unit",
+                    "skos:exactMatch": "qudtu:M",
+                    "skos:notation": "m",
+                    "dcterms:conformsTo": {
+                      "@id":"https://www.ivoa.net/documents/VOUnits/"
+                    }
+                  }
+                }
+              },
+              {
+                "@type": "qudt:Quantity",
+                "qudt:hasQuantityKind":{
+                  "@type": [
+                    "qudt:QuantityKind",
+                    "skos:Concept"
+                  ],
+                  "skos:prefLabel": "HCIZ_OBS"
+                },
+                "qudt:quantityValue":{
+                  "@type": "qudt:QuantityValue",
+                  "qudt:minInclusive": -1.81407271e+10,
+                  "qudt:maxInclusive": -1.80578133e+10,
+                  "qudt:hasUnit": {
+                    "@type": "qudt:Unit",
+                    "skos:exactMatch": "qudtu:M",
+                    "skos:notation": "m",
+                    "dcterms:conformsTo": {
+                      "@id":"https://www.ivoa.net/documents/VOUnits/"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "qudt:coordinateSystem": [{
+            "@type": "skos:Concept",
+            "skos:prefLabel": "Heliographic Carrington Inertial",
+            "skos:notation": "HCI",
+            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateSystemName"
+          },
+          {
+            "@type": "skos:Concept",
+            "skos:prefLabel": "Cartesian",
+            "skos:notation": "Cartesian",
+            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateRepresentation"
+          }]
+        }
+     ],
+     "dcat:distribution": [
+        {
+           "@type": "dcat:Distribution",
+           "dcterms:title": "HTTPS archive in FITS format at SDAC",
+           "dcterms:accessURL": "https://umbra.nascom.nasa.gov/punch/3/CAM", 
+           "dcterms:accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+           "dcterms:license": "https://spdx.org/licenses/CC-BY-4.0.html",
+           "dcterms:format": {
+             "@id": "https://mime-type.com/image/fits/",
+             "@type": "Concept",
+             "skos:prefLabel": "Flexible Image Transport System",
+             "skos:notation": "image/fits",
+             "skos:inScheme": "https://mime-type.com/"
+           },
+           "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/",
+           "dcat:accessService": {
+               "@type":"dcat:DataService",
+               "dcterms:type": "HTTPS",
+               "dcterms:title": "HTTPS from the SDAC",
+               "dcat:contactPoint": {
+                "@type": "vcard:Kind",
+                "vcard:fn": "Jack Ireland",
+                "vcard:hasEmail": "jack.ireland@nasa.gov"
+               },  
+               "dcat:endpointURL": "https://umbra.nascom.nasa.gov/punch/3/CAM/",
+               "dcterms:publisher": {
+                  "@id": "https://ror.org/04rvfc379",
+                  "@type": "foaf:Organization",
+                  "foaf:name": "Solar Data Analysis Center",
+                  "dcterms:identifier": "https://ror.org/04rvfc379"
+               }
+            }
+        }
+      ],
+     "dcterms:requires": [
+        {
+           "@id": "https://doi.org/10.5281/zenodo.14029123",
+           "@type": "dcterms:Software",
+           "dcterms:title": "punchbowl",
+           "dcat:version": "0.0.23",
+           "dcterms:description": "punchbowl contains the science processing calibration code for use with data from the Polarimeter to UNify the Corona and Heliosphere (PUNCH) mission. It provides the primary software modules in use by the mission processing pipeline for calibrating data, also available directly to science community users. The repository also contains software tools for handling PUNCH data, along with example notebooks.",
+           "dcterms:identifier": "https://hssi.hsdcloud.org/software/punchbowl/"
+        }
+     ],
+     "dcterms:references": [
+       {
+        "@id": "https://helio.data.nasa.gov/mission/PUNCH",
+        "@type": "foaf:Document",
+        "dcterms:title": "PUNCH Data",
+        "dcterms:description": "Polarimeter to Unify the Corona and Heliosphere mission home page hosted by NASA",
+        "dcterms:identifier": "https://helio.data.nasa.gov/mission/PUNCH"
+       }
+     ],
+     "dcterms:qualifiedRelation": [
+        {
+         "@type": "dcat:Relationship",
+         "dcterms:relation": "https://punch.space.swri.edu/",
+         "dcat:hadRole": {
+           "@id": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isdocumentedby",
+           "@type": "dcat:Role",
+           "skos:prefLabel": "is documented by",
+           "skos:notation": "IsDocumentedBy",
+           "skos:inScheme": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#"
+         }
+        },
+        {
+         "@type": "dcat:Relationship",
+         "dcterms:relation": "https://doi.org/10.1007/s11207-026-02608-2",
+         "dcat:hadRole": {
+           "@type": "dcat:Role",
+           "skos:prefLabel": "Reference Publication",
+           "skos:notation": "referencePublication",
+           "skos:inScheme": "https://codemeta.github.io/terms/"
+         }
+        }        
+      ],
+     "prov:wasGeneratedBy": [
+        {
+           "@type": "provone:Execution",
+           "prov:hadPlan": {
+             "@id": "https://doi.org/10.5281/zenodo.17873784",
+             "@type": [
+               "dcterms:Software", 
+               "prov:Plan"
+             ],
+             "dcterms:title": "punch-mission/punchpipe: 0.0.14",
+             "dcterms:identifier": "https://doi.org/10.5281/zenodo.17873784",
+             "dcterms:version": "0.0.14"
+           },
+           "prov:used": {
+              "@id": "https://doi.org/10.48322/sv88-z093",
+              "@type": ["dcat:Dataset", "prov:Entity"],
+              "dcterms:title": "PUNCH Level2 Clear Mosaics (Trefoil) Data.",
+              "dcterms:identifier": "https://doi.org/10.48322/sv88-z093"
+           }
+        }
+     ],
+     "sosa:madeBySensor": [
+        {
+           "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/NFI.html",
+           "@type": "sosa:Sensor",
+           "dcterms:title": "Narrow Field Imager (NFI)",
+           "adms:identifier": {
+              "@type": "adms:Identifier",
+              "dcterms:creator": "https://spase-group.org/",
+              "skos:notation": "spase://NASA/Instrument/PUNCH/NFI"
+           }
+        },
+        {
+           "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/1.html",
+           "@type": "sosa:Sensor",
+           "dcterms:title": "Wide Field Imager (WFI)",
+           "adms:identifier": {
+              "@type": "adms:Identifier",
+              "dcterms:creator": "https://spase-group.org/",
+              "skos:notation": "spase://NASA/Instrument/PUNCH/WFI/1"
+           }
+        },
+        {
+           "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/2.html",
+           "@type": "sosa:Sensor",
+           "dcterms:title": "Wide Field Imager (WFI)",
+           "adms:identifier": {
+              "@type": "adms:Identifier",
+              "dcterms:creator": "https://spase-group.org/",
+              "skos:notation": "spase://NASA/Instrument/PUNCH/WFI/2"
+           }
+        },
+        {
+           "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/3.html",
+           "@type": "sosa:Sensor",
+           "dcterms:title": "Wide Field Imager (WFI)",
+           "adms:identifier": {
+              "@type": "adms:Identifier",
+              "dcterms:creator": "https://spase-group.org/",
+              "skos:notation": "spase://NASA/Instrument/PUNCH/WFI/3"
+           }
+        }        
+     ],
+     "sosa:hasMember": {
+        "@list": [
+          {
+            "@type": "sosa:Observation",
+            "sosa:madeBySensor": {
+              "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/NFI.html"
+            },
+            "sosa:observedProperty": {
+              "@type": [
+                "sosa:Property",
+                "iop:Variable"
+              ],
+              "iop:hasObjectOfInterest": "dbr:Photon",
+              "iop:hasProperty": {
+                "@type": [
+                  "iop:Property",
+                  "skos:Concept"
+                ],
+                "skos:prefLabel": "Intensity"
+              },
+              "iop:hasConstraint": [
+                {
+                  "@type": [
+                    "iop:Constraint",
+                    "skos:Concept",
+                    "qudt:Quantity"
+                  ],
+                  "iop:constrains": "dbr:Wavelength",
+                  "skos:prefLabel": "Visible light",
+                  "qudt:hasQuantityKind": "qudtqk:Wavelength",
+                  "qudt:quantityValue":{
+                   "@type": "qudt:QuantityValue",
+                   "qudt:value": 530,
+                   "qudt:hasUnit": {
+                     "@type": "qudt:Unit",
+                     "skos:exactMatch": "qudtu:NanoM",
+                     "skos:prefLabel": "nm",
+                     "skos:notation": "nm",
+                     "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                   }
+                  }                  
+                }
+              ]
+            },
+            "sosa:hasResult": {
+              "@type": "qudt:Quantity",
+              "dcterms:identifier": "unpolarized",
+              "skos:prefLabel": "unpolarized",
+              "dcterms:description": "Unpolarized low noise mosaic",
+              "qudt:hasUnit": [
+                {
+                  "@type": "qudt:Unit",
+                  "skos:prefLabel": "2.009e+07 W/(m2 sr)",  
+                  "skos:notation": "2.009e+07 W/(m2 sr)",
+                  "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                }
+              ],
+              "qudt:dimensionality": 2,
+              "qudt:dimensions": {
+                "@list": [4096, 4096]
+              }
+            }
+          },
+          {
+            "@type": "sosa:Observation",
+            "sosa:madeBySensor": {
+              "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/NFI.html"
+            },
+            "sosa:observedProperty": {
+              "@type": [
+                "sosa:Property",
+                "iop:Variable"
+              ],
+              "iop:hasObjectOfInterest": "dbr:Photon",
+              "iop:hasProperty": {
+                "@type": [
+                  "iop:Property",
+                  "skos:Concept"
+                ],
+                "skos:prefLabel": "Intensity"
+              },
+              "iop:hasConstraint": [
+                {
+                  "@type": [
+                    "iop:Constraint",
+                    "skos:Concept",
+                    "qudt:Quantity"
+                  ],
+                  "iop:constrains": "dbr:Wavelength",
+                  "skos:prefLabel": "Visible light",
+                  "qudt:hasQuantityKind": "qudtqk:Wavelength",
+                  "qudt:quantityValue":{
+                   "@type": "qudt:QuantityValue",
+                   "qudt:value": 530,
+                   "qudt:hasUnit": {
+                     "@type": "qudt:Unit",
+                     "skos:exactMatch": "qudtu:NanoM",
+                     "skos:prefLabel": "nm",
+                     "skos:notation": "nm",
+                     "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                   }
+                  }                  
+                }
+              ]
+            },
+            "sosa:hasResult": {
+              "@type": "qudt:Quantity",
+              "dcterms:identifier": "unpolarized_uncertainty",
+              "skos:prefLabel": "unpolarized uncertainty",
+              "dcterms:description": "Unpolarized low noise mosaic uncertainty quantification",
+              "qudt:hasUnit": [
+                {
+                  "@type": "qudt:Unit",
+                  "skos:prefLabel": "2.009e+07 W/(m2 sr)",  
+                  "skos:notation": "2.009e+07 W/(m2 sr)",
+                  "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                }
+              ],
+              "qudt:dimensionality": 2,
+              "qudt:dimensions": {
+                "@list": [4096, 4096]
+              }              
+            }
+          },          
+          {
+            "@type": "sosa:Observation",
+            "sosa:madeBySensor": [
+              { "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/1.html"},
+              { "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/2.html"},
+              { "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/3.html"}
+            ],
+            "sosa:observedProperty": {
+              "@type": [
+                "sosa:Property",
+                "iop:Variable"
+              ],
+              "iop:hasObjectOfInterest": "dbr:Photon",
+              "iop:hasProperty": {
+                "@type": [
+                  "iop:Property",
+                  "skos:Concept"
+                ],
+                "skos:prefLabel": "Intensity"
+              },
+              "iop:hasConstraint": [
+                {
+                  "@type": [
+                    "iop:Constraint",
+                    "skos:Concept",
+                    "qudt:Quantity"
+                  ],
+                  "iop:constrains": "dbr:Photon",
+                  "skos:prefLabel": "Ultraviolet Light",
+                  "skos:notation": "Q11391",
+                  "skos:inScheme": "https://www.wikidata.org/wiki/",
+                  "dcterms:identifier": "https://www.wikidata.org/wiki/Q11391",
+                  "qudt:hasQuantityKind": "qudtqk:Wavelength",
+                  "qudt:quantityValue": {
+                   "@type": "qudt:QuantityValue",
+                   "qudt:value": 211,
+                   "qudt:hasUnit": {
+                     "@type": "qudt:Unit",
+                     "skos:exactMatch": "qudtu:ANGSTROM",
+                     "skos:prefLabel": "Angstrom",
+                     "skos:notation": "Angstrom",
+                     "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                    }
+                  }                  
+                },
+                {
+                  "@type": [
+                    "iop:Constraint",
+                    "skos:Concept"
+                  ],
+                  "iop:constrains": "dbr:Photon",
+                  "skos:prefLabel": "Polarized"
+                }
+              ]
+            },
+            "sosa:hasResult": {
+              "@type": "qudt:Quantity",
+              "dcterms:identifier": "polarized_UV_mosaic",
+              "skos:prefLabel": "Polarized UV",
+              "dcterms:description": "Polarized ultraviolet mosaic, filter: UVA3, pixel resolution: 81 arcsec, observation mode: continuous, grating: 500 nm",
+              "qudt:hasUnit": [
+                {
+                  "@type": "qudt:Unit",
+                  "skos:prefLabel": "2.009e+07 W/(m2 sr)",  
+                  "skos:notation": "2.009e+07 W/(m2 sr)",
+                  "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                }
+              ],
+              "qudt:dimensionality": 2,
+              "qudt:dimensions": {
+                "@list": [4096, 4096]
+              }              
+            }
+          },            
+          {
+            "@type": "sosa:Observation",
+            "sosa:madeBySensor": [
+              {
+                "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/1.html"
+              },
+              {
+                "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/2.html"
+              },
+              {
+                "@id": "https://spase-metadata.org/NASA/Instrument/PUNCH/WFI/3.html"
+              }
+            ],
+            "sosa:observedProperty": {
+              "@type": [
+                "sosa:Property",
+                "iop:Variable"
+              ],
+              "iop:hasObjectOfInterest": "dbr:Photon",
+              "iop:hasProperty": {
+                "@id": "https://www.wikidata.org/wiki/Q104831",
+                "@type": [
+                  "iop:Property",
+                  "skos:Concept"
+                ],
+                "skos:prefLabel": "Intensity"
+              },
+              "iop:hasConstraint": [
+                {
+                  "@type": [
+                    "iop:Constraint",
+                    "skos:Concept",
+                    "qudt:Quantity"
+                  ],
+                  "iop:constrains": "dbr:Wavelength",
+                  "skos:prefLabel": "Ultraviolet Light",
+                  "qudt:hasQuantityKind": "qudtqk:Wavelength",
+                  "qudt:quantityValue":{
+                   "@type": "qudt:QuantityValue",
+                   "qudt:value": 21.1,
+                   "qudt:hasUnit": {
+                     "@type": "qudt:Unit",
+                     "skos:exactMatch": "qudtu:NanoM",
+                     "skos:prefLabel": "nm",
+                     "skos:notation": "nm",
+                     "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                   }
+                  }                  
+                },
+                {
+                  "@type": [
+                    "iop:Constraint",
+                    "skos:Concept"
+                  ],
+                  "iop:constrains": "dbr:Photon",
+                  "skos:prefLabel": "Polarized"
+                },
+                {
+                  "@type": [
+                    "iop:Constraint",
+                    "skos:Concept"
+                  ],
+                  "iop:constrains": "dbr:Photon",
+                  "skos:prefLabel": "measurement uncertainty",
+                  "dcterms:identifier": "https://www.wikidata.org/wiki/Q1403517"
+                }                  
+              ]
+            },
+            "sosa:hasResult": {
+              "@type": "qudt:Quantity",
+              "dcterms:identifier": "polarized_UV_uncertainty",
+              "skos:prefLabel": "Polarized UV uncertainty",
+              "dcterms:description": "Polarized ultraviolet mosaic uncertainty",
+              "qudt:hasUnit": [
+                {
+                  "@type": "qudt:Unit",
+                  "skos:prefLabel": "2.009e+07 W/(m2 sr)",  
+                  "skos:notation": "2.009e+07 W/(m2 sr)",
+                  "dcterms:conformsTo": "https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf"
+                }
+              ],
+              "qudt:dimensionality": 2,
+              "qudt:dimensions": {
+                "@list": [4096, 4096]
+              }              
+            }
+          }
+        ]
+      }
+    }
+  ]
+}         

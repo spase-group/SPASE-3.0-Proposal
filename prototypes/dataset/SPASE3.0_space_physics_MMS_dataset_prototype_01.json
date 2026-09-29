@@ -1,0 +1,1589 @@
+{
+    "@context": {
+        "adms": "http://www.w3.org/ns/adms#",
+        "dbo": "http://dbpedia.org/ontology/",
+        "dbr": "http://dbpedia.org/resource/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "geo": "http://www.opengis.net/ont/geosparql#",
+        "iop": "https://w3id.org/iadopt/ont/",
+        "locn": "http://www.w3.org/ns/locn#",
+        "org": "http://www.w3.org/ns/org#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#",
+        "qudt": "https://qudt.org/schema/qudt/",
+        "qudtqk": "https://qudt.org/vocab/quantitykind/",
+        "qudtu": "https://qudt.org/vocab/unit/",
+        "schema": "http://schema.org/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "sosa": "http://www.w3.org/ns/sosa/",
+        "spase": "https://github.com/spase-group/SPASE-3.0-Proposal/schema/",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+        "dcterms:conformsTo": {
+            "@id": "dcterms:conformsTo",
+            "@type": "@id"
+        },
+        "foaf:primaryTopic": {
+            "@id": "foaf:primaryTopic",
+            "@type": "@id"
+        },
+        "foaf:page": {
+            "@id": "foaf:page",
+            "@type": "@id"
+        },
+        "dcterms:issued": {
+            "@id": "dcterms:issued",
+            "@type": "xsd:dateTime"
+        },
+        "dcterms:modified": {
+            "@id": "dcterms:modified",
+            "@type": "xsd:dateTime"
+        },
+        "dcterms:accessRights": {
+            "@id": "dcterms:accessRights",
+            "@type": "@id"
+        },
+        "dcterms:license": {
+            "@id": "dcterms:license",
+            "@type": "@id"
+        },
+        "adms:status": {
+            "@id": "adms:status",
+            "@type": "@id"
+        },
+        "dcterms:identifier": {
+            "@id": "dcterms:identifier"
+        },
+        "adms:identifier": {
+            "@id": "adms:identifier",
+            "@type": "@id"
+        },
+        "dcterms:type": {
+            "@id": "dcterms:type",
+            "@type": "@id"
+        },
+        "dcterms:provenance": {
+            "@id": "dcterms:provenance",
+            "@type": "@id"
+        },
+        "spase:processingLevel": {
+            "@id": "spase:processingLevel",
+            "@type": "@id"
+        },
+        "dcat:landingPage": {
+            "@id": "dcat:landingPage",
+            "@type": "@id"
+        },
+        "dcterms:publisher": {
+            "@id": "dcterms:publisher",
+            "@type": "@id"
+        },
+        "dcterms:creator": {
+            "@id": "dcterms:creator",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "dcterms:contributor": {
+            "@id": "dcterms:contributor",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "org:memberOf": {
+            "@id": "org:memberOf",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "prov:qualifiedAttribution": {
+            "@id": "prov:qualifiedAttribution",
+            "@type": "@id"
+        },
+        "dcat:contactPoint": {
+            "@id": "dcat:contactPoint",
+            "@type": "@id"
+        },
+        "schema:funding": {
+            "@id": "schema:funding",
+            "@type": "@id"
+        },
+        "spase:measurementType": {
+            "@id": "spase:measurementType",
+            "@type": "@id"
+        },
+        "spase:phenomenonType": {
+            "@id": "spase:phenomenonType",
+            "@type": "@id"
+        },
+        "spase:observedRange": {
+            "@id": "spase:observedRange",
+            "@type": "@id"
+        },
+        "dcterms:subject": {
+            "@id": "dcterms:subject",
+            "@type": "@id"
+        },
+        "dcterms:temporal": {
+            "@id": "dcterms:temporal",
+            "@type": "@id"
+        },
+        "dcat:temporalResolution": {
+            "@id": "dcat:temporalResolution",
+            "@type": "xsd:duration"
+        },
+        "spase:exposure": {
+            "@id": "spase:exposure",
+            "@type": "xsd:duration"
+        },
+        "dcat:startDate": {
+            "@id": "dcat:startDate",
+            "@type": "xsd:dateTime"
+        },
+        "dcat:endDate": {
+            "@id": "dcat:endDate",
+            "@type": "xsd:dateTime"
+        },
+        "spase:relativeEndDate": {
+            "@id": "spase:relativeEndDate",
+            "@type": "xsd:duration"
+        },
+        "dcterms:spatial": {
+            "@id": "dcterms:spatial",
+            "@type": "@id"
+        },
+        "dcat:centroid": {
+            "@id": "dcat:centroid",
+            "@type": "geo:wktLiteral"
+        },
+        "dcat:bbox": {
+            "@id": "dcat:bbox",
+            "@type": "geo:wktLiteral"
+        },
+        "locn:geometry": {
+            "@id": "locn:geometry",
+            "@type": "geo:wktLiteral"
+        },
+        "dcat:distribution": {
+            "@id": "dcat:distribution",
+            "@type": "@id"
+        },
+        "dcat:accessURL": {
+            "@id": "dcat:accessURL",
+            "@type": "@id"
+        },
+        "dcterms:format": {
+            "@id": "dcterms:format",
+            "@type": "@id"
+        },
+        "dcat:accessService": {
+            "@id": "dcat:accessService",
+            "@type": "@id"
+        },
+        "dcat:servesDataset": {
+            "@id": "dcat:servesDataset",
+            "@type": "@id"
+        },
+        "dcat:endpointURL": {
+            "@id": "dcat:endpointURL",
+            "@type": "@id"
+        },
+        "dcat:endpointDescription": {
+            "@id": "dcat:endpointDescription",
+            "@type": "@id"
+        },
+        "dcterms:qualifiedRelation": {
+            "@id": "dcterms:qualifiedRelation",
+            "@type": "@id"
+        },
+        "dcterms:relation": {
+            "@id": "dcterms:relation",
+            "@type": "@id"
+        },
+        "dcat:hadRole": {
+            "@id": "dcat:hadRole",
+            "@type": "@id"
+        },
+        "prov:wasGeneratedBy": {
+            "@id": "prov:wasGeneratedBy",
+            "@type": "@id"
+        },
+        "prov:hadPlan": {
+            "@id": "prov:hadPlan",
+            "@type": "@id"
+        },
+        "prov:used": {
+            "@id": "prov:used",
+            "@type": "@id"
+        },
+        "dcterms:hasPart": {
+            "@id": "dcterms:hasPart",
+            "@type": "@id"
+        },
+        "dcterms:isPartOf": {
+            "@id": "dcterms:isPartOf",
+            "@type": "@id"
+        },
+        "dcterms:hasVersion": {
+            "@id": "dcterms:hasVersion",
+            "@type": "@id"
+        },
+        "dcterms:isVersionOf": {
+            "@id": "dcterms:isVersionOf",
+            "@type": "@id"
+        },
+        "dcterms:replaces": {
+            "@id": "dcterms:replaces",
+            "@type": "@id"
+        },
+        "dcterms:isReplacedBy": {
+            "@id": "dcterms:isReplacedBy",
+            "@type": "@id"
+        },
+        "dcterms:requires": {
+            "@id": "dcterms:requires",
+            "@type": "@id"
+        },
+        "dcterms:isRequiredBy": {
+            "@id": "dcterms:isRequiredBy",
+            "@type": "@id"
+        },
+        "prov:wasDerivedFrom": {
+            "@id": "prov:wasDerivedFrom",
+            "@type": "@id"
+        },
+        "sosa:madeBySensor": {
+            "@id": "sosa:madeBySensor",
+            "@type": "@id"
+        },
+        "sosa:hasMember": {
+            "@id": "sosa:hasMember",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "sosa:observedProperty": {
+            "@id": "sosa:observedProperty",
+            "@type": "@id"
+        },
+        "sosa:hasResult": {
+            "@id": "sosa:hasResult",
+            "@type": "@id"
+        },
+        "iop:hasObjectOfInterest": {
+            "@id": "iop:hasObjectOfInterest",
+            "@type": "@id"
+        },
+        "iop:hasProperty": {
+            "@id": "iop:hasProperty",
+            "@type": "@id"
+        },
+        "iop:hasConstraint": {
+            "@id": "iop:hasConstraint",
+            "@type": "@id"
+        },
+        "iop:constrains": {
+            "@id": "iop:constrains",
+            "@type": "@id"
+        },
+        "qudt:hasQuantityKind": {
+            "@id": "qudt:hasQuantityKind",
+            "@type": "@id"
+        },
+        "qudt:quantityValue": {
+            "@id": "qudt:quantityValue",
+            "@type": "@id"
+        },
+        "qudt:hasUnit": {
+            "@id": "qudt:hasUnit",
+            "@type": "@id"
+        },
+        "qudt:element": {
+            "@id": "qudt:element",
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "qudt:dimensions": {
+            "@id": "qudt:dimensions",
+            "@container": "@list",
+            "@type": "xsd:integer"
+        },
+        "qudt:dataOrder": {
+            "@id": "qudt:dataOrder",
+            "@type": "@id"
+        },
+        "qudt:order": {
+            "@id": "qudt:order",
+            "@type": "xsd:integer"
+        },
+        "qudt:coordinateSystem": {
+            "@id": "qudt:coordinateSystem",
+            "@type": "@id"
+        },
+        "skos:inScheme": {
+            "@id": "skos:inScheme",
+            "@type": "@id"
+        },
+        "skos:exactMatch": {
+            "@id": "skos:exactMatch",
+            "@type": "@id"
+        }
+    },
+
+
+    "@graph": [
+        {
+            "@id": "https://github.com/hpde/NASA/blob/master/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S",
+            "@type": "dcat:CatalogRecord",
+            "dcterms:conformsTo": "https://github.com/spase-group/SPASE-3.0-Proposal/schema/",
+            "foaf:primaryTopic": "https://doi.org/10.48322/6cfb-rq65",
+            "foaf:page": "https://spase-metadata.org/NASA/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S.html",
+            "dcterms:issued": "2021-04-27T15:38:11",
+            "dcterms:modified": "2023-03-04T12:34:56.789",
+            "dcterms:accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+            "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+            "dcterms:creator": [
+                {
+                    "@id": "https://orcid.org/0000-0003-4678-3824",
+                    "@type": "foaf:Person",
+                    "foaf:givenName": "Lee Frost",
+                    "foaf:familyName": "Bargatze",
+                    "org:memberOf": [
+                        {
+                            "@id": "https://ror.org/046rm7j60",
+                            "@type": "foaf:Organization",
+                            "foaf:name": "University of California, Los Angeles",
+                            "dcterms:identifier": "https://ror.org/046rm7j60"
+                        }
+                    ]
+                },
+                {
+                    "@type": "foaf:Person",
+                    "foaf:name": "David Smithson",
+                    "org:memberOf": {
+                        "@type": "foaf:Organization",
+                        "foaf:name": "Southwest Research Institute"
+                    }
+                }
+            ],
+            "dcat:contactPoint": {
+                "@type": "vcard:Kind",
+                "vcard:fn": "SPASE Metadata Working Team (SMWT)",
+                "vcard:hasEmail": "spase-support@groups.io"
+            }
+        },
+
+        {
+            "@id": "https://doi.org/10.48322/6cfb-rq65",
+            "@type": [
+                "dcat:Dataset",
+                "sosa:ObservationCollection"
+            ],
+            "dcterms:conformsTo": "https://github.com/spase-group/SPASE-3.0-Proposal/schema/",
+            "adms:status": "http://purl.org/adms/status/Completed",
+            "dcterms:identifier": "https://doi.org/10.48322/6cfb-rq65",
+            "adms:identifier": [
+                {
+                    "@type": "adms:Identifier",
+                    "dcterms:creator": "https://spase-group.org/",
+                    "skos:notation": "spase://NASA/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S"
+                },
+                {
+                    "@type": "adms:Identifier",
+                    "dcterms:creator": "https://spase-group.org/",
+                    "skos:notation": "spase://VSPO/NumericalData/MMS/4/HotPlasmaCompositionAnalyzer/Burst/Level2/Ion/PT0.625S"
+                }
+            ],
+            "dcterms:type": [
+                {
+                    "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#NumericalData",
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "NumericalData"
+                },
+                {
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "Catalog"
+                }
+            ],
+            "dcterms:title": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Ions, Level 2 (L2), Burst Mode, 0.625 s Data",
+            "dcterms:description": "Hot Plasma Composition Analyzer (HPCA) Ions, Level 2, Burst Survey, 0.625 s Data. The MMS HPCA instruments measure the energy and composition of magnetospheric plasmas in the energy range from 1 eV to 40 keV. An electrostatic energy analyzer (ESA) that is optically coupled to a carbon-foil based Time-of-Flight (TOF) section comprises each HPCA. The basic HPCA data product is an array of counts for 5 ion species, at 63 energies, for each of 16 elevation anodes. Sixteen basic products, also called azimuths, are acquired every 0.625 s; half a spacecraft spin period nominally has 16 azimuths. The five ion species are protons (H+), alpha particles (He++), helium ions (He+), singly charged Oxygen (O+), and background counts.",
+            "dcat:version": "2.0",
+            "adms:versionNotes": "The dataset was reprocessed using new calibration values. See ..... for detailed description of changes.",
+            "dcterms:provenance": "https://lasp.colorado.edu/mms/sdc/public/datasets/hpca/",
+            "spase:processingLevel": {
+                "@type": "skos:Concept",
+                "skos:notation": "Calibrated",
+                "skos:prefLabel": "Calibrated",
+                "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#ProcessingLevel"
+            },
+            "dcat:landingPage": "https://helio.data.nasa.gov/dataset/MMS_4_HotPlasmaCompositionAnalyzer_Burst_Level2_Ion_PT0.625S",
+            "dcterms:issued": "2022-01-01T00:00:00",
+            "dcterms:publisher": {
+                "@id": "https://ror.org/00ryjtt64",
+                "@type": "foaf:Organization",
+                "foaf:name": "Space Physics Data Facility",
+                "dcterms:identifier": "https://ror.org/00ryjtt64"
+            },
+            "dcterms:creator": [
+                {
+                    "@id": "https://orcid.org/0000-0003-4101-7901",
+                    "@type": "foaf:Person",
+                    "foaf:givenName": "Stephen A.",
+                    "foaf:familyName": "Fuselier",
+                    "foaf:mbox": "sfuselier@swri.edu",
+                    "org:memberOf": [
+                        {
+                            "@id": "https://ror.org/03tghng59",
+                            "@type": "foaf:Organization",
+                            "foaf:name": "Southwest Research Institute",
+                            "dcterms:identifier": "https://ror.org/03tghng59"
+                        },
+                        {
+                            "@type": "foaf:Organization",
+                            "foaf:name": "The University of Texas at San Antonio"
+                        }
+                    ]
+                },
+                {
+                    "@id": "_:DavidT.Young",
+                    "@type": "foaf:Person",
+                    "foaf:name": "David T. Young",
+                    "org:memberOf": {
+                        "@type": "foaf:Organization",
+                        "foaf:name": "Southwest Research Institute"
+                    }
+                }
+            ],
+            "dcterms:contributor": {
+                "@type": "foaf:Organization",
+                "foaf:name": "Magnetospheric Multiscale (MMS) Science Operations Center (SOC)",
+                "foaf:mbox": "mmssdc@lasp.colorado.edu"
+            },
+            "prov:qualifiedAttribution": [
+                {
+                    "@type": "prov:Attribution",
+                    "prov:agent": {
+                        "@id": "_:DavidT.Young"
+                    },
+                    "dcat:hadRole": [
+                        {
+                            "@id": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/#datacurator",
+                            "@type": "dcat:Role",
+                            "skos:prefLabel": "Data Curator",
+                            "skos:notation": "DataCurator",
+                            "skos:inScheme": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/contributorType/"
+                        }
+                    ]
+                },
+                {
+                    "@type": "prov:Attribution",
+                    "prov:agent": {
+                        "@id": "https://orcid.org/0000-0003-4101-7901"
+                    },
+                    "dcat:hadRole": [
+                        {
+                            "@id": "_:InstrumentLead",
+                            "@type": "dcat:Role",
+                            "skos:prefLabel": "Instrument Lead",
+                            "skos:notation": "InstrumentLead",
+                            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Role"
+                        }
+                    ]
+                },
+                {
+                    "@type": "prov:Attribution",
+                    "prov:agent": {
+                        "@id": "https://orcid.org/0000-0001-9473-7000"
+                    },
+                    "dcat:hadRole": {
+                        "@id": "_:InstrumentLead"
+                    }
+                },
+                {
+                    "@type": "prov:Attribution",
+                    "prov:agent": {
+                        "@id": "https://orcid.org/0000-0001-9473-7000"
+                    },
+                    "dcat:hadRole": [
+                        {
+                            "@type": "dcat:Role",
+                            "skos:prefLabel": "CoInvestigator"
+                        }
+                    ]
+                }
+            ],
+            "dcat:contactPoint": {
+                "@type": "vcard:Kind",
+                "vcard:fn": "Magnetospheric Multiscale (MMS) Science Operations Center (SOC)",
+                "vcard:hasEmail": "mmssdc@lasp.colorado.edu"
+            },
+            "schema:funding": [
+                {
+                    "@id": "https://doi.org/example_grant_doi",
+                    "@type": "schema:MonetaryGrant",
+                    "schema:funder": {
+                        "@id": "https://ror.org/027ka1x80",
+                        "@type": "foaf:Organization",
+                        "foaf:name": "National Aeronautics and Space Administration",
+                        "dcterms:identifier": "https://ror.org/027ka1x80"
+                    },
+                    "dcterms:title": "The most amazing grant ever",
+                    "adms:identifier": [
+                        {
+                            "@type": "adms:Identifier",
+                            "dcterms:creator": "https://stp.gsfc.nasa.gov/",
+                            "adms:schemaAgency": "Solar Terrestrial Probe (STP) program",
+                            "skos:notation": "NNG19PQ28C"
+                        }
+                    ]
+                },
+                {
+                    "@type": "schema:MonetaryGrant",
+                    "schema:funder": {
+                        "@type": "foaf:Organization",
+                        "foaf:name": "NumFocus"
+                    },
+                    "dcterms:title": "The helper grant"
+                }
+            ],
+            "schema:creditText": "Please acknowledge S.A. Fuselier, D.T. Young, R.G. Gomez, and J.L. Burch for use of these data",
+            "spase:measurementType": [
+                {
+                    "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#MeasurementType/EnergeticParticles",
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "Energetic Particles",
+                    "skos:notation": "EnergeticParticles",
+                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#MeasurementType"
+                },
+                {
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "Magnetic Field"
+                }
+            ],
+            "spase:phenomenonType": [
+                {
+                    "@id": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#PhenomenonType/GeomagneticStorm",
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "Geomagnetic Storm",
+                    "skos:notation": "GeomagneticStorm",
+                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#PhenomenonType"
+                },
+                {
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "Magnetopause Crossing"
+                }
+            ],
+            "spase:observedRange": [
+                {
+                    "@id": "https://dbpedia.org/page/X-ray",
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "X-Ray",
+                    "skos:notation": "X-ray",
+                    "skos:inScheme": "https://dbpedia.org/"
+                },
+                {
+                    "@type": [
+                        "skos:Concept",
+                        "qudt:Quantity"
+                    ],
+                    "skos:prefLabel": "X-Ray",
+                    "qudt:hasQuantityKind": "qudtqk:Wavelength",
+                    "qudt:quantityValue": {
+                        "@type": "qudt:QuantityValue",
+                        "qudt:minInclusive": 0.02,
+                        "qudt:maxInclusive": 5,
+                        "qudt:hasUnit": {
+                            "@type": "qudt:Unit",
+                            "skos:exactMatch": "qudtu:NanoM",
+                            "skos:prefLabel": "nm"
+                        }
+                    }
+                },
+                {
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "X-Ray"
+                },
+                {
+                    "@type": "qudt:Quantity",
+                    "qudt:quantityValue": {
+                        "@type": "qudt:QuantityValue",
+                        "qudt:minInclusive": 0.02,
+                        "qudt:maxInclusive": 5,
+                        "qudt:hasUnit": {
+                            "@type": "qudt:Unit",
+                            "skos:prefLabel": "nm"
+                        }
+                    }
+                }
+            ],
+            "dcterms:subject": [
+                {
+                    "@id": "http://astrothesaurus.org/uat/1472",
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "Solar-planetary interactions",
+                    "skos:notation": "1472",
+                    "skos:inScheme": "https://astrothesaurus.org/"
+                },
+                {
+                    "@type": "skos:Concept",
+                    "skos:prefLabel": "solar corona"
+                }
+            ],
+            "dcat:temporalResolution": "PT0.625S",
+            "spase:exposure": "PT3S",
+            "dcterms:temporal": {
+                "@type": "dcterms:PeriodOfTime",
+                "dcat:startDate": "2015-09-01T12:11:00Z",
+                "spase:relativeEndDate": "-P2M"
+            },
+            "dcterms:spatial": [
+                {
+                    "@id": "https://astrothesaurus.org/uat/2381",
+                    "@type": [
+                        "dcterms:Location",
+                        "skos:Concept"
+                    ],
+                    "skos:prefLabel": "Magnetosheath",
+                    "skos:notation": "2381",
+                    "skos:inScheme": "https://astrothesaurus.org/"
+                },
+                {
+                    "@type": [
+                        "dcterms:Location",
+                        "skos:Concept"
+                    ],
+                    "skos:prefLabel": "Magnetosphere"
+                },
+                {
+                    "@type": "dcterms:Location",
+                    "dcat:centroid": "POINT (120.88412 52.37509)"
+                },
+                {
+                    "@type": "dcterms:Location",
+                    "dcat:bbox": "POLYGON ((120.00 50.00, 120.00 51.00, 121.00 51.00, 120.00 51.00, 120.00 50.00))"
+                },
+                {
+                    "@type": "dcterms:Location",
+                    "dcat:centroid": "<https://spatialreference.org/ref/epsg/4979/> POINT Z (120.88412 52.37509 11.423)"
+                },
+                {
+                    "@type": "dcterms:Location",
+                    "locn:geometry": "<https://spatialreference.org/ref/epsg/4979/> LINESTRING Z (52.37509 120.88412 1000, 52.37509 120.88412 5000)"
+                },
+                {
+                    "@type": [
+                        "dcterms:Location",
+                        "qudt:Coordinates"
+                    ],
+                    "qudt:element": [
+                        {
+                            "@type": "qudt:Quantity",
+                            "qudt:hasQuantityKind": {
+                                "@type": [
+                                    "qudt:QuantityKind",
+                                    "skos:Concept"
+                                ],
+                                "skos:prefLabel": "Component I",
+                                "skos:notation": "Component.I",
+                                "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                            },
+                            "qudt:quantityValue": {
+                                "@type": "qudt:QuantityValue",
+                                "qudt:minInclusive": 1200000,
+                                "qudt:maxInclusive": 1500000,
+                                "qudt:hasUnit": {
+                                    "@type": "qudt:Unit",
+                                    "skos:exactMatch": "qudtu:KiloM",
+                                    "skos:notation": "km",
+                                    "dcterms:conformsTo": {
+                                        "@id": "https://www.ivoa.net/documents/VOUnits/"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "@type": "qudt:Quantity",
+                            "qudt:hasQuantityKind": {
+                                "@type": [
+                                    "qudt:QuantityKind",
+                                    "skos:Concept"
+                                ],
+                                "skos:prefLabel": "Component J",
+                                "skos:notation": "Component.J",
+                                "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                            },
+                            "qudt:quantityValue": {
+                                "@type": "qudt:QuantityValue",
+                                "qudt:minInclusive": -300000,
+                                "qudt:maxInclusive": 300000,
+                                "qudt:hasUnit": {
+                                    "@type": "qudt:Unit",
+                                    "skos:exactMatch": "qudtu:KiloM",
+                                    "skos:notation": "km",
+                                    "dcterms:conformsTo": {
+                                        "@id": "https://www.ivoa.net/documents/VOUnits/"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "@type": "qudt:Quantity",
+                            "qudt:hasQuantityKind": {
+                                "@type": [
+                                    "qudt:QuantityKind",
+                                    "skos:Concept"
+                                ],
+                                "skos:prefLabel": "Component K",
+                                "skos:notation": "Component.K",
+                                "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                            },
+                            "qudt:quantityValue": {
+                                "@type": "qudt:QuantityValue",
+                                "qudt:minInclusive": -300000,
+                                "qudt:maxInclusive": 300000,
+                                "qudt:hasUnit": {
+                                    "@type": "qudt:Unit",
+                                    "skos:exactMatch": "qudtu:KiloM",
+                                    "skos:notation": "km",
+                                    "dcterms:conformsTo": {
+                                        "@id": "https://www.ivoa.net/documents/VOUnits/"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "qudt:coordinateSystem": [
+                        {
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "GSE",
+                            "skos:notation": "GSE",
+                            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateSystemName"
+                        },
+                        {
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "Cartesian",
+                            "skos:notation": "Cartesian",
+                            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateRepresentation"
+                        }
+                    ]
+                },
+                {
+                    "@type": [
+                        "dcterms:Location",
+                        "qudt:Coordinates"
+                    ],
+                    "qudt:element": [
+                        {
+                            "@type": "qudt:Quantity",
+                            "qudt:hasQuantityKind": {
+                                "@type": [
+                                    "qudt:QuantityKind",
+                                    "skos:Concept"
+                                ],
+                                "skos:prefLabel": "Component I"
+                            },
+                            "qudt:quantityValue": {
+                                "@type": "qudt:QuantityValue",
+                                "qudt:minInclusive": 1200000,
+                                "qudt:maxInclusive": 1500000,
+                                "qudt:hasUnit": {
+                                    "@type": "qudt:Unit",
+                                    "skos:prefLabel": "km"
+                                }
+                            }
+                        },
+                        {
+                            "@type": "qudt:Quantity",
+                            "qudt:hasQuantityKind": {
+                                "@type": [
+                                    "qudt:QuantityKind",
+                                    "skos:Concept"
+                                ],
+                                "skos:prefLabel": "Component J"
+                            },
+                            "qudt:quantityValue": {
+                                "@type": "qudt:QuantityValue",
+                                "qudt:minInclusive": -300000,
+                                "qudt:maxInclusive": 300000,
+                                "qudt:hasUnit": {
+                                    "@type": "qudt:Unit",
+                                    "skos:prefLabel": "km"
+                                }
+                            }
+                        },
+                        {
+                            "@type": "qudt:Quantity",
+                            "qudt:hasQuantityKind": {
+                                "@type": [
+                                    "qudt:QuantityKind",
+                                    "skos:Concept"
+                                ],
+                                "skos:prefLabel": "Component K"
+                            },
+                            "qudt:quantityValue": {
+                                "@type": "qudt:QuantityValue",
+                                "qudt:minInclusive": -300000,
+                                "qudt:maxInclusive": 300000,
+                                "qudt:hasUnit": {
+                                    "@type": "qudt:Unit",
+                                    "skos:prefLabel": "km"
+                                }
+                            }
+                        }
+                    ],
+                    "qudt:coordinateSystem": [
+                        {
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "GSE"
+                        },
+                        {
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "Cartesian"
+                        }
+                    ]
+                }
+            ],
+            "dcat:distribution": [
+                {
+                    "@type": "dcat:Distribution",
+                    "dcterms:title": "MMS HTTPS archive in CDF format at LASP MMS SDC",
+                    "dcat:accessURL": "https://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/",
+                    "dcterms:accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+                    "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+                    "dcterms:format": {
+                        "@id": "https://cn.dataone.org/cn/v2/formats/application/x-cdf",
+                        "@type": "skos:Concept",
+                        "skos:prefLabel": "Common Data Format (CDF)",
+                        "skos:notation": "application/x-cdf",
+                        "skos:inScheme": "https://cn.dataone.org/cn/v2/formats/"
+                    },
+                    "dcterms:conformsTo": "https://doi.org/10.5281/zenodo.20790266",
+                    "dcat:byteSize": "20 MB per day",
+                    "dcat:accessService": {
+                        "@type": "dcat:DataService",
+                        "dcterms:type": {
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "HTTPS"
+                        },
+                        "dcterms:title": "HTTPS from the MMS SDC",
+                        "dcat:contactPoint": {
+                            "@type": "vcard:Kind",
+                            "vcard:fn": "NASA-SPDF-Support",
+                            "vcard:hasEmail": "NASA-SPDF-Support@nasa.onmicrosoft.com"
+                        },
+                        "dcat:servesDataset": {
+                            "@type": "dcat:Dataset",
+                            "dcterms:identifier": "MMS4_HPCA_BRST_L2_ION"
+                        },
+                        "dcat:endpointURL": "https://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/",
+                        "dcterms:publisher": {
+                            "@id": "https://ror.org/01fcjzv38",
+                            "@type": "foaf:Organization",
+                            "foaf:name": "Laboratory for Atmospheric and Space Physics",
+                            "dcterms:identifier": "https://ror.org/01fcjzv38"
+                        }
+                    }
+                },
+                {
+                    "@type": "dcat:Distribution",
+                    "dcat:accessURL": "ftps://lasp.colorado.edu/mms/sdc/public/data/mms4/hpca/brst/l2/ion/",
+                    "dcterms:license": {
+                        "@type": "dcterms:LicenseDocument",
+                        "dcterms:title": "Restricted"
+                    }
+                },
+                {
+                    "@type": "dcat:Distribution",
+                    "dcterms:title": "SPDF CDAWeb HAPI Server",
+                    "dcat:accessURL": "https://cdaweb.gsfc.nasa.gov/hapi",
+                    "dcterms:accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+                    "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+                    "dcterms:format": [
+                        {
+                            "@id": "https://cn.dataone.org/cn/v2/formats/application/json",
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "JavaScript Object Notation (JSON) file",
+                            "skos:notation": "application/json",
+                            "skos:inScheme": "https://cn.dataone.org/cn/v2/formats/"
+                        },
+                        {
+                            "@id": "https://cn.dataone.org/cn/v2/formats/text/csv",
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "Comma Separated Values Text",
+                            "skos:notation": "text/csv",
+                            "skos:inScheme": "https://cn.dataone.org/cn/v2/formats/"
+                        },
+                        {
+                            "@id": "https://cn.dataone.org/cn/v2/formats/application/octet-stream",
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "Octet Stream",
+                            "skos:notation": "application/octet-stream",
+                            "skos:inScheme": "https://cn.dataone.org/cn/v2/formats/"
+                        }
+                    ],
+                    "dcat:accessService": {
+                        "@type": "dcat:DataService",
+                        "dcterms:type": {
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "RESTful API"
+                        },
+                        "dcterms:identifier": "https://cdaweb.gsfc.nasa.gov/hapi",
+                        "dcterms:conformsTo": "https://doi.org/10.5281/zenodo.4757596",
+                        "dcterms:title": "SPDF CDAWeb HAPI Server",
+                        "dcterms:description": "Web Service to this product using the HAPI interface",
+                        "dcat:contactPoint": {
+                            "@type": "vcard:Kind",
+                            "vcard:fn": "NASA-SPDF-Support",
+                            "vcard:hasEmail": "NASA-SPDF-Support@nasa.onmicrosoft.com"
+                        },
+                        "dcat:servesDataset": {
+                            "@type": "dcat:Dataset",
+                            "dcterms:identifier": [
+                                "MMS4_HPCA_BRST_L2_ION@0",
+                                "MMS4_HPCA_BRST_L2_ION@1"
+                            ]
+                        },
+                        "dcat:endpointURL": "https://cdaweb.gsfc.nasa.gov/hapi",
+                        "dcat:endpointDescription": [
+                            "https://hapi-server.org/servers/#server=CDAWeb&dataset=MMS4_HPCA_BRST_L2_ION@0",
+                            "https://hapi-server.org/servers/#server=CDAWeb&dataset=MMS4_HPCA_BRST_L2_ION@1"
+                        ],
+                        "dcterms:publisher": {
+                            "@id": "https://ror.org/00ryjtt64",
+                            "@type": "foaf:Organization",
+                            "foaf:name": "Space Physics Data Facility",
+                            "dcterms:identifier": "https://ror.org/00ryjtt64"
+                        }
+                    }
+                },
+                {
+                    "@type": "dcat:Distribution",
+                    "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+                    "dcat:accessURL": "https://cdaweb.gsfc.nasa.gov/hapi",
+                    "dcat:accessService": {
+                        "@type": "dcat:DataService",
+                        "dcterms:title": "SPDF CDAWeb HAPI Server - Minimal example",
+                        "dcat:contactPoint": {
+                            "@type": "vcard:Kind",
+                            "vcard:fn": "NASA-SPDF-Support",
+                            "vcard:hasEmail": "NASA-SPDF-Support@nasa.onmicrosoft.com"
+                        },
+                        "dcat:servesDataset": {
+                            "@type": "dcat:Dataset",
+                            "dcterms:identifier": "MMS4_HPCA_BRST_L2_ION"
+                        },
+                        "dcat:endpointURL": "https://cdaweb.gsfc.nasa.gov/hapi",
+                        "dcterms:publisher": {
+                            "@id": "https://ror.org/00ryjtt64"
+                        }
+                    }
+                },
+                {
+                    "@type": "dcat:Distribution",
+                    "dcterms:title": "Cloud access through HSD's HelioCloud",
+                    "dcat:accessURL": "https://gov-nasa-hdrl-data1.s3.amazonaws.com/spdf/cdaweb/data/psp/fields/l2/dfb_ac_spec/scmflfhg/PSP_FLD_L2_DFB_AC_SPEC_SCMFLFHG_index.html",
+                    "dcterms:accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+                    "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+                    "dcterms:format": {
+                        "@id": "https://cn.dataone.org/cn/v2/formats/text/csv",
+                        "@type": "skos:Concept",
+                        "skos:prefLabel": "Comma Separated Values Text",
+                        "skos:notation": "text/csv",
+                        "skos:inScheme": "https://cn.dataone.org/cn/v2/formats/"
+                    },
+                    "dcat:accessService": {
+                        "@type": "dcat:DataService",
+                        "dcterms:type": {
+                            "@id": "https://schemas.isotc211.org/19115/resources/Codelist/cat/codelists.xml#DCPList_WebServices",
+                            "@type": "skos:Concept",
+                            "skos:prefLabel": "Web Services",
+                            "skos:notation": "DCPList_WebServices",
+                            "skos:inScheme": "https://schemas.isotc211.org/19115/resources/Codelist/cat/codelists.xml#"
+                        },
+                        "dcterms:identifier": "https://gov-nasa-hdrl-data1.s3.amazonaws.com",
+                        "dcterms:conformsTo": "https://aws.amazon.com/s3/",
+                        "dcterms:title": "HSD's s3 bucket",
+                        "dcterms:description": "Web Service to this product on the cloud",
+                        "dcat:contactPoint": {
+                            "@type": "vcard:Kind",
+                            "vcard:fn": "NASA-HelioCloud-Support",
+                            "vcard:hasEmail": "NASA-HelioCloud-Support@nasa.onmicrosoft.com"
+                        },
+                        "dcat:servesDataset": {
+                            "@type": "dcat:Dataset",
+                            "dcterms:identifier": [
+                                "PSP_FLD_L2_DFB_AC_SPEC_SCMFLFHG"
+                            ]
+                        },
+                        "dcat:endpointURL": "https://gov-nasa-hdrl-data1.s3.amazonaws.com/spdf/cdaweb/data/psp/fields/l2/dfb_ac_spec/scmflfhg/PSP_FLD_L2_DFB_AC_SPEC_SCMFLFHG_index.html",
+                        "dcterms:publisher": {
+                            "@id": "https://ror.org/04xbq1n92",
+                            "@type": "foaf:Organization",
+                            "foaf:name": "Heliophysics Data and Modeling Consortium",
+                            "dcterms:identifier": "https://ror.org/04xbq1n92"
+                        }
+                    }
+                },
+                {
+                    "@type": "dcat:Distribution",
+                    "dcat:accessURL": "https://gov-nasa-hdrl-data1.s3.amazonaws.com/spdf/cdaweb/data/psp/fields/l2/dfb_ac_spec/scmflfhg/PSP_FLD_L2_DFB_AC_SPEC_SCMFLFHG_index.html",
+                    "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+                    "dcat:accessService": {
+                        "@type": "dcat:DataService",
+                        "dcterms:title": "HSD's s3 bucket",
+                        "dcat:contactPoint": {
+                            "@type": "vcard:Kind",
+                            "vcard:fn": "heliocloud",
+                            "vcard:hasEmail": "heliocloud@groups.io"
+                        },
+                        "dcat:servesDataset": {
+                            "@type": "dcat:Dataset",
+                            "dcterms:identifier": [
+                                "PSP_FLD_L2_DFB_AC_SPEC_SCMFLFHG"
+                            ]
+                        },
+                        "dcat:endpointURL": "https://gov-nasa-hdrl-data1.s3.amazonaws.com/spdf/cdaweb/data/psp/fields/l2/dfb_ac_spec/scmflfhg/PSP_FLD_L2_DFB_AC_SPEC_SCMFLFHG_index.html",
+                        "dcterms:publisher": {
+                            "@id": "https://ror.org/04xbq1n92"
+                        }
+                    }
+                },
+                {
+                    "@type": "dcat:Distribution",
+                    "dcterms:title": "FTPS from SPDF (not with most browsers)",
+                    "dcat:accessURL": "ftps://spdf.gsfc.nasa.gov/pub/data/pointer_files/rbspb_efw_burst-waveform-uvw-l1_00000000_v01.cdf",
+                    "dcterms:accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+                    "dcterms:license": "https://spdx.org/licenses/CC0-1.0",
+                    "dcterms:format": {
+                        "@id": "https://cn.dataone.org/cn/v2/formats/application/x-cdf",
+                        "@type": "skos:Concept",
+                        "skos:prefLabel": "Common Data Format (CDF)",
+                        "skos:notation": "application/x-cdf",
+                        "skos:inScheme": "https://cn.dataone.org/cn/v2/formats/"
+                    }
+                },
+                {
+                    "@type": "dcat:Distribution",
+                    "dcat:accessURL": "https://spdf.gsfc.nasa.gov/pub/data/pointer_files/rbspb_efw_burst-waveform-uvw-l1_00000000_v01.cdf",
+                    "dcterms:license": "https://spdx.org/licenses/CC0-1.0"
+                }
+            ],
+            "dcterms:requires": [
+                {
+                    "@id": "https://doi.org/10.48322/6cfb-rq65_Data_Analysis_Software",
+                    "@type": "dcterms:Software",
+                    "dcterms:title": "Data Analysis Software",
+                    "dcat:version": "2.0",
+                    "dcterms:description": "The data analysis software recommended by the mission for this dataset.",
+                    "dcterms:identifier": "https://doi.org/10.48322/6cfb-rq65_Data_Analysis_Software"
+                },
+                "https://lasp.colorado.edu/mms/sdc/public/datasets/hpca/"
+            ],
+            "dcterms:references": [
+                {
+                    "@id": "https://mms.gsfc.nasa.gov/",
+                    "@type": "foaf:Document",
+                    "dcterms:title": "The Magnetospheric Multiscale (MMS) Mission home page",
+                    "dcterms:description": "The Magnetospheric Multiscale (MMS) Mission home page hosted by Goddard Space Flight Center (GSFC)",
+                    "dcterms:identifier": "https://mms.gsfc.nasa.gov/"
+                },
+                "https://mms.gsfc.nasa.gov/about_mms.html"
+            ],
+            "dcterms:qualifiedRelation": [
+                {
+                    "@type": "dcat:Relationship",
+                    "dcterms:relation": "https://sweap.cfa.harvard.edu/sweap_data_user_guide.pdf",
+                    "dcat:hadRole": {
+                        "@id": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#isdocumentedby",
+                        "@type": "dcat:Role",
+                        "skos:prefLabel": "is documented by",
+                        "skos:notation": "IsDocumentedBy",
+                        "skos:inScheme": "https://datacite-metadata-schema.readthedocs.io/en/4.6/appendices/appendix-1/relationType/#"
+                    }
+                },
+                {
+                    "@type": "dcat:Relationship",
+                    "dcterms:relation": "https://example_documentation_link3.com",
+                    "dcat:hadRole": {
+                        "@id": "_:SupersededBy",
+                        "@type": "dcat:Role",
+                        "skos:prefLabel": "superseded by",
+                        "skos:notation": "SupersededBy",
+                        "skos:inScheme": "https://spase-group.org/data/model/spase-latest/index.html#AssociationType"
+                    }
+                },
+                {
+                    "@type": "dcat:Relationship",
+                    "dcterms:relation": "https://example_documentation_link2.com",
+                    "dcat:hadRole": {
+                        "@id": "_:SupersededBy"
+                    }
+                },
+                {
+                    "@type": "dcat:Relationship",
+                    "dcterms:relation": "https://example_documentation_link.com",
+                    "dcat:hadRole": {
+                        "@type": "dcat:Role",
+                        "skos:prefLabel": "is documented by"
+                    }
+                }
+            ],
+            "dcterms:replaces": [
+                {
+                    "@id": "https://doi.org/10.48322/6cfb-rq65_PREVIOUS_VERSION",
+                    "@type": "dcat:Dataset",
+                    "dcterms:title": "MMS 4 Hot Plasma Composition Analyzer (HPCA) Ions, Level 2 (L2), Burst Mode, 0.625 s Data",
+                    "dcat:version": "1.0",
+                    "dcterms:identifier": "https://doi.org/10.48322/6cfb-rq65_PREVIOUS_VERSION",
+                    "dcterms:description": "Original version of the mission data set"
+                },
+                "https://doi.org/10.48322/6cfb-rq65_originalVersion_of_PreviousVersion"
+            ],
+            "prov:wasDerivedFrom": [
+                {
+                    "@id": "https://doi.org/10.48322/6cfb-rq65_L1_DATASET",
+                    "@type": "dcat:Dataset",
+                    "dcterms:title": "Level 1 Dataset",
+                    "dcat:version": "1.0",
+                    "dcterms:identifier": "https://doi.org/10.48322/6cfb-rq65_L1_DATASET",
+                    "dcterms:description": "Partially calibrated version of the mission data set"
+                },
+                "https://doi.org/10.48322/6cfb-rq65_rawVersion"
+            ],
+            "prov:wasGeneratedBy": [
+                {
+                    "@type": "provone:Execution",
+                    "prov:hadPlan": {
+                        "@id": "https://doi.org/10.48322/6cfb-rq65_PROCESSING_SOFTWARE",
+                        "@type": [
+                            "prov:Plan",
+                            "dcterms:Software"
+                        ],
+                        "dcterms:title": "Processing software for the MMS datasets",
+                        "dcterms:identifier": "https://doi.org/10.48322/6cfb-rq65_PROCESSING_SOFTWARE",
+                        "dcterms:version": "1.0",
+                        "dcterms:description": "Awesome software descriptions go here"
+                    },
+                    "prov:used": {
+                        "@id": "https://doi.org/10.48322/6cfb-rq65_L1_DATASET",
+                        "@type": [
+                            "prov:Entity",
+                            "dcat:Dataset"
+                        ]
+                    }
+                },
+                {
+                    "@type": "provone:Execution",
+                    "prov:hadPlan": {
+                        "@id": "https://doi.org/10.48322/6cfb-rq65_PROCESSING_SOFTWARE_2",
+                        "@type": [
+                            "prov:Plan",
+                            "dcterms:Software"
+                        ],
+                        "dcterms:identifier": "https://doi.org/10.48322/6cfb-rq65_PROCESSING_SOFTWARE_2"
+                    }
+                }
+            ],
+            "sosa:madeBySensor": [
+                {
+                    "@id": "https://spase-metadata.org/SMWG/Instrument/MMS/4/FIELDS/FGM",
+                    "@type": "sosa:Sensor",
+                    "dcterms:title": "MMS 4 FIELDS Suite, Fluxgate Magnetometer (FGM) Instrument",
+                    "adms:identifier": {
+                        "@type": "adms:Identifier",
+                        "dcterms:creator": "https://spase-group.org/",
+                        "skos:notation": "spase://SMWG/Instrument/MMS/4/FIELDS/FGM"
+                    }
+                },
+                {
+                    "@id": "_:ExampleNameHPCA",
+                    "@type": "sosa:Sensor",
+                    "dcterms:title": "Example Name HPCA"
+                }
+            ],
+            "sosa:hasMember": [
+                {
+                    "@type": "sosa:Observation",
+                    "sosa:madeBySensor": {
+                        "@id": "https://spase-metadata.org/SMWG/Instrument/MMS/4/FIELDS/FGM"
+                    },
+                    "sosa:observedProperty": {
+                        "@type": [
+                            "sosa:Property",
+                            "iop:Variable"
+                        ],
+                        "iop:hasObjectOfInterest": "qudtqk:Time",
+                        "iop:hasProperty": "dbr:Coordinated_Universal_Time"
+                    },
+                    "sosa:hasResult": {
+                        "@type": "qudt:Quantity",
+                        "dcterms:identifier": "Epoch",
+                        "skos:prefLabel": "UTC converted from TAI time",
+                        "dcterms:description": "Start Time for the Record",
+                        "qudt:hasUnit": {
+                            "@type": "qudt:Unit",
+                            "skos:exactMatch": "qudtu:NanoSEC",
+                            "skos:prefLabel": "ns",
+                            "skos:notation": "ns",
+                            "dcterms:conformsTo": {
+                                "@id": "https://www.doi.org/10.5479/ADS/bib/2023ivoa.spec.1215G",
+                                "@type": "dcterms:Standard",
+                                "dcterms:identifier": "https://www.doi.org/10.5479/ADS/bib/2023ivoa.spec.1215G",
+                                "dcterms:title": "VOUnits",
+                                "dcat:version": "1.1"
+                            }
+                        }
+                    }
+                },
+                {
+                    "@type": "sosa:Observation",
+                    "sosa:madeBySensor": {
+                        "@id": "_:ExampleNameHPCA"
+                    },
+                    "sosa:observedProperty": {
+                        "@type": [
+                            "sosa:Property",
+                            "iop:Variable"
+                        ],
+                        "iop:hasObjectOfInterest": "dbr:Proton",
+                        "iop:hasProperty": "dbr:Energy_flux",
+                        "iop:hasConstraint": [
+                            {
+                                "@type": [
+                                    "iop:Constraint",
+                                    "skos:Concept"
+                                ],
+                                "iop:constrains": "dbr:Energy_flux",
+                                "skos:prefLabel": "Differential",
+                                "skos:notation": "Differential",
+                                "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                            },
+                            {
+                                "@type": [
+                                    "iop:Constraint",
+                                    "skos:Concept"
+                                ],
+                                "iop:constrains": "dbr:Energy_flux",
+                                "skos:prefLabel": "Mid energy range name (e.g., infrared in solar physics)."
+                            },
+                            {
+                                "@type": [
+                                    "iop:Constraint",
+                                    "qudt:Quantity"
+                                ],
+                                "iop:constrains": "dbr:Proton",
+                                "qudt:hasQuantityKind": "qudtqk:Energy",
+                                "qudt:quantityValue": {
+                                    "@type": "qudt:QuantityValue",
+                                    "qudt:minInclusive": 10,
+                                    "qudt:maxInclusive": 40,
+                                    "qudt:hasUnit": {
+                                        "@type": "qudt:Unit",
+                                        "skos:prefLabel": "keV"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "sosa:hasResult": {
+                        "@type": "qudt:Quantity",
+                        "dcterms:identifier": "mms4_hpca_hplus_flux",
+                        "skos:prefLabel": "Hydrogen+ Flux",
+                        "dcterms:description": "Hydrogen+ Flux for all Elevation Anodes across all Energies",
+                        "qudt:hasUnit": [
+                            {
+                                "@type": "qudt:Unit",
+                                "skos:prefLabel": "(cm^2 s sr eV)^-1",
+                                "skos:notation": "(cm**2.s.sr.eV)**-1",
+                                "dcterms:conformsTo": {
+                                    "@id": "https://www.doi.org/10.5479/ADS/bib/2023ivoa.spec.1215G"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "@type": "sosa:Observation",
+                    "sosa:madeBySensor": {
+                        "@id": "https://spase-metadata.org/SMWG/Instrument/MMS/4/FIELDS/FGM"
+                    },
+                    "sosa:observedProperty": {
+                        "@type": [
+                            "sosa:Property",
+                            "iop:Variable"
+                        ],
+                        "iop:hasObjectOfInterest": "qudtqk:MagneticField",
+                        "iop:hasProperty": "qudtqk:MagneticFluxDensity"
+                    },
+                    "sosa:hasResult": {
+                        "@type": [
+                            "qudt:Quantity",
+                            "qudt:Array"
+                        ],
+                        "dcterms:identifier": "mms4_hpca_B_GSE_sweep_avg",
+                        "skos:prefLabel": "Magnetic Field Vector in DMPA plus Btotal (8 or 16 samples/s)",
+                        "dcterms:description": "Magnetic Field Vector in Despun Major Principal Axis-Aligned (DMPA) Cartesian Coordinates plus Btotal (8 or 16 samples/s)",
+                        "qudt:dimensionality": 1,
+                        "qudt:dimensions": [4],
+                        "qudt:dataOrder": "qudt:ByLeftMostIndex",
+                        "qudt:element": [
+                            {
+                                "@type": "qudt:Quantity",
+                                "qudt:order": 1,
+                                "skos:prefLabel": "Bx DMPA",
+                                "qudt:hasQuantityKind": {
+                                    "@type": [
+                                        "qudt:QuantityKind",
+                                        "skos:Concept"
+                                    ],
+                                    "skos:prefLabel": "Component I",
+                                    "skos:notation": "Component.I",
+                                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                                },
+                                "qudt:coordinateSystem": [
+                                    {
+                                        "@type": "skos:Concept",
+                                        "skos:prefLabel": "MFA",
+                                        "skos:notation": "MFA",
+                                        "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateSystemName"
+                                    },
+                                    {
+                                        "@type": "skos:Concept",
+                                        "skos:prefLabel": "Cartesian",
+                                        "skos:notation": "Cartesian",
+                                        "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateRepresentation"
+                                    }
+                                ],
+                                "qudt:hasUnit": {
+                                    "@id": "_:nT",
+                                    "@type": "qudt:Unit",
+                                    "skos:exactMatch": "qudtu:NanoT",
+                                    "skos:notation": "nT",
+                                    "dcterms:conformsTo": {
+                                        "@id": "https://www.ivoa.net/documents/VOUnits/"
+                                    }
+                                }
+                            },
+                            {
+                                "@type": "qudt:Quantity",
+                                "qudt:order": 2,
+                                "skos:prefLabel": "By DMPA",
+                                "qudt:hasQuantityKind": {
+                                    "@type": [
+                                        "qudt:QuantityKind",
+                                        "skos:Concept"
+                                    ],
+                                    "skos:prefLabel": "Component J",
+                                    "skos:notation": "Component.J",
+                                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                                },
+                                "qudt:coordinateSystem": [
+                                    {
+                                        "@type": "skos:Concept",
+                                        "skos:prefLabel": "MFA",
+                                        "skos:notation": "MFA",
+                                        "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateSystemName"
+                                    },
+                                    {
+                                        "@type": "skos:Concept",
+                                        "skos:prefLabel": "Cartesian",
+                                        "skos:notation": "Cartesian",
+                                        "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateRepresentation"
+                                    }
+                                ],
+                                "qudt:hasUnit": {
+                                    "@id": "_:nT"
+                                }
+                            },
+                            {
+                                "@type": "qudt:Quantity",
+                                "qudt:order": 3,
+                                "skos:prefLabel": "Bz DMPA",
+                                "qudt:hasQuantityKind": {
+                                    "@type": [
+                                        "qudt:QuantityKind",
+                                        "skos:Concept"
+                                    ],
+                                    "skos:prefLabel": "Component K",
+                                    "skos:notation": "Component.K",
+                                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                                },
+                                "qudt:coordinateSystem": [
+                                    {
+                                        "@type": "skos:Concept",
+                                        "skos:prefLabel": "MFA",
+                                        "skos:notation": "MFA",
+                                        "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateSystemName"
+                                    },
+                                    {
+                                        "@type": "skos:Concept",
+                                        "skos:prefLabel": "Cartesian",
+                                        "skos:notation": "Cartesian",
+                                        "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateRepresentation"
+                                    }
+                                ],
+                                "qudt:hasUnit": {
+                                    "@id": "_:nT"
+                                }
+                            },
+                            {
+                                "@type": "qudt:Quantity",
+                                "qudt:order": 4,
+                                "skos:prefLabel": "B total",
+                                "qudt:hasQuantityKind": {
+                                    "@type": [
+                                        "qudt:QuantityKind",
+                                        "skos:Concept"
+                                    ],
+                                    "skos:prefLabel": "Mag",
+                                    "skos:notation": "Magnitude",
+                                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                                },
+                                "qudt:hasUnit": {
+                                    "@type": "qudt:Unit",
+                                    "skos:exactMatch": "qudtu:MilliT",
+                                    "skos:notation": "mT",
+                                    "dcterms:conformsTo": {
+                                        "@id": "https://www.ivoa.net/documents/VOUnits/"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "@type": "sosa:Observation",
+                    "sosa:madeBySensor": {
+                        "@id": "https://spase-metadata.org/SMWG/Instrument/MMS/4/FIELDS/FGM"
+                    },
+                    "sosa:observedProperty": {
+                        "@type": [
+                            "sosa:Property",
+                            "iop:Variable"
+                        ],
+                        "iop:hasObjectOfInterest": "qudtqk:MagneticField",
+                        "iop:hasProperty": {
+                            "@type": [
+                                "skos:Concept",
+                                "iop:Property"
+                            ],
+                            "skos:prefLabel": "Magnetic Flux Density",
+                            "skos:notation": "MagneticFluxDensity",
+                            "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#FieldQuantity"
+                        }
+                    },
+                    "sosa:hasResult": {
+                        "@type": [
+                            "qudt:Quantity",
+                            "qudt:Array"
+                        ],
+                        "dcterms:identifier": "mms4_hpca_B_GSE_sweep_avg_1min",
+                        "skos:prefLabel": "Magnetic Field Vector in DMPA (1 minute averages)",
+                        "dcterms:description": "Magnetic Field Vector in Despun Major Principal Axis-Aligned (DMPA) Cartesian Coordinates (1 minute averages)",
+                        "qudt:dimensionality": 1,
+                        "qudt:dimensions": [3],
+                        "qudt:dataOrder": "qudt:ByLeftMostIndex",
+                        "qudt:element": [
+                            {
+                                "@type": "qudt:Quantity",
+                                "qudt:order": 1,
+                                "skos:prefLabel": "Bx DMPA",
+                                "qudt:hasQuantityKind": {
+                                    "@type": [
+                                        "qudt:QuantityKind",
+                                        "skos:Concept"
+                                    ],
+                                    "skos:prefLabel": "Component I",
+                                    "skos:notation": "Component.I",
+                                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                                }
+                            },
+                            {
+                                "@type": "qudt:Quantity",
+                                "qudt:order": 2,
+                                "skos:prefLabel": "By DMPA",
+                                "qudt:hasQuantityKind": {
+                                    "@type": [
+                                        "qudt:QuantityKind",
+                                        "skos:Concept"
+                                    ],
+                                    "skos:prefLabel": "Component J",
+                                    "skos:notation": "Component.J",
+                                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                                }
+                            },
+                            {
+                                "@type": "qudt:Quantity",
+                                "qudt:order": 3,
+                                "skos:prefLabel": "Bz DMPA",
+                                "qudt:hasQuantityKind": {
+                                    "@type": [
+                                        "qudt:QuantityKind",
+                                        "skos:Concept"
+                                    ],
+                                    "skos:prefLabel": "Component K",
+                                    "skos:notation": "Component.K",
+                                    "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#Qualifier"
+                                }
+                            }
+                        ],
+                        "qudt:hasUnit": {
+                            "@id": "_:nT"
+                        },
+                        "qudt:coordinateSystem": [
+                            {
+                                "@type": "skos:Concept",
+                                "skos:prefLabel": "MFA",
+                                "skos:notation": "MFA",
+                                "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateSystemName"
+                            },
+                            {
+                                "@type": "skos:Concept",
+                                "skos:prefLabel": "Cartesian",
+                                "skos:notation": "Cartesian",
+                                "skos:inScheme": "https://spase-group.org/data/model/spase-latest/spase-latest_xsd.htm#CoordinateRepresentation"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "@type": "sosa:Observation",
+                    "sosa:madeBySensor": {
+                        "@id": "https://spase-metadata.org/SMWG/Instrument/MMS/4/FIELDS/FGM"
+                    },
+                    "sosa:observedProperty": {
+                        "@type": [
+                            "sosa:Property",
+                            "iop:Variable"
+                        ],
+                        "iop:hasObjectOfInterest": {
+                            "@type": [
+                                "skos:Concept",
+                                "iop:Entity"
+                            ],
+                            "skos:prefLabel": "Magnetic Field"
+                        },
+                        "iop:hasProperty": {
+                            "@type": [
+                                "skos:Concept",
+                                "iop:Property"
+                            ],
+                            "skos:prefLabel": "Magnetic Flux Density"
+                        }
+                    },
+                    "sosa:hasResult": {
+                        "@type": [
+                            "qudt:Quantity",
+                            "qudt:Array"
+                        ],
+                        "dcterms:identifier": "mms4_hpca_B_GSE_sweep_avg_1min",
+                        "skos:prefLabel": "Magnetic Field Vector in DMPA (1 minute averages)",
+                        "dcterms:description": "Magnetic Field Vector in Despun Major Principal Axis-Aligned (DMPA) Cartesian Coordinates (1 minute averages)",
+                        "qudt:dimensionality": 1,
+                        "qudt:dimensions": [3]
+                    }
+                }
+            ]
+        }
+    ]
+}

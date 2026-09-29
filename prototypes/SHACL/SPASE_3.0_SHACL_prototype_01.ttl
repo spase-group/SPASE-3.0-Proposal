@@ -1,0 +1,2220 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix iop: <https://w3id.org/iadopt/ont/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix provone: <http://purl.dataone.org/provone/2015/01/15/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qudt: <https://qudt.org/schema/qudt/> .
+@prefix qudtqk: <https://qudt.org/vocab/quantitykind/> .
+@prefix qudtu: <https://qudt.org/vocab/unit/> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix spase: <https://github.com/spase-group/SPASE-3.0-Proposal/schema/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+spase:CatalogRecord_Shape
+    a sh:NodeShape ;
+    rdfs:label "Catalog Record" ;
+    sh:targetClass dcat:CatalogRecord ;
+    sh:property
+        [
+            sh:name "conforms to" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:Standard ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:Standard
+                ]
+            ) ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Violation ;
+            sh:message "Single dcterms:conformsTo value is allowed, which is either IRI, untyped or typed as dcterms:Standard, or Blank Node typed as dcterms:Standard." 
+        ] ,
+        [
+            sh:name "primary topic" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcat:Dataset ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcat:Dataset
+                ]
+            ) ;
+            sh:path foaf:primaryTopic ;
+            sh:severity sh:Violation ;
+            sh:message "Single foaf:primaryTopic value is required, and it must be either IRI, untyped or typed as dcat:Dataset, or Blank Node typed as dcat:Dataset." 
+        ] ,
+        [
+            sh:name "web page" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Document ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class foaf:Document
+                ]
+            ) ;
+            sh:path foaf:page ;
+            sh:severity sh:Violation ;
+            sh:message "foaf:page value must be either IRI, untyped or typed as foaf:Document, or Blank Node typed as foaf:Document." 
+        ] ,
+        [
+            sh:name "issued" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:dateTime ;
+            sh:path dcterms:issued ;
+            sh:severity sh:Violation ;
+            sh:message "Single dcterms:issued value is required, and it must be data typed as xsd:dateTime." 
+        ] ,
+        [
+            sh:name "modified" ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:dateTime ;
+            sh:path dcterms:modified ;
+            sh:severity sh:Violation ;
+            sh:message "dcterms:modified value must be data typed as xsd:dateTime." 
+        ] ,
+        [
+            sh:name "access rights" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:RightsStatement ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:RightsStatement
+                ]
+            ) ;
+            sh:path dcterms:accessRights ;
+            sh:severity sh:Violation ;
+            sh:message "Single dcterms:accessRights value is allowed, and it must be either IRI, untyped or typed as dcterms:RightsStatement, or Blank Node typed as dcterms:RightsStatement." 
+        ] ,
+        [
+            sh:name "license" ;
+            sh:minCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:LicenseDocument ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:LicenseDocument
+                ]
+            ) ;
+            sh:path dcterms:license ;
+            sh:severity sh:Violation;
+            sh:message "dcterms:license value is required, and it must be either IRI, untyped or typed as dcterms:LicenseDocument, or Blank Node typed as dcterms:LicenseDocument." 
+        ] ,
+        [
+            sh:name "creator" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:or ( 
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                    )
+                ]
+            ) ;
+            sh:path ( dcterms:creator [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+            sh:severity sh:Violation ;
+            sh:message "dcterms:creator ordered list values must be either IRI, untyped or typed as foaf:Person or foaf:Organization, or Blank Node typed as foaf:Person or foaf:Organization." 
+        ] ,
+        [
+            sh:name "contact point" ;
+            sh:nodeKind sh:BlankNodeOrIRI;
+            sh:class vcard:Kind ;
+            sh:path dcat:contactPoint ;
+            sh:severity sh:Violation ;
+            sh:message "dcat:contactPoint value must be either IRI or Blank Node, both typed as vcard:Kind." 
+        ] .
+
+
+
+
+spase:Dataset_Shape
+    a sh:NodeShape ;
+    rdfs:label "Dataset" ;
+    sh:targetClass dcat:Dataset ;
+    sh:or (
+        [ sh:node spase:MainDataset_Shape ]
+        [
+            a sh:PropertyShape ;
+            sh:path [
+                sh:alternativePath (
+                    [ sh:inversePath dcat:servesDataset ]
+                    [ sh:inversePath dcterms:relation ]
+                    [ sh:inversePath dcterms:hasPart ]
+                    [ sh:inversePath dcterms:isPartOf ]
+                    [ sh:inversePath dcterms:hasVersion ]
+                    [ sh:inversePath dcterms:isVersionOf ]
+                    [ sh:inversePath dcterms:replaces ]
+                    [ sh:inversePath dcterms:isReplacedBy ]
+                    [ sh:inversePath dcterms:requires ]
+                    [ sh:inversePath dcterms:isRequiredBy ]
+                    [ sh:inversePath prov:wasDerivedFrom ]
+                    [ sh:inversePath prov:used ]
+                )
+            ] ;
+            sh:minCount 1
+        ]
+    ) .
+
+
+
+spase:MainDataset_Shape
+    a sh:NodeShape ;
+    rdfs:label "Main Dataset" ;
+    sh:property
+        [
+            sh:hasValue sosa:ObservationCollection ;
+            sh:path rdf:type ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "conforms to" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:Standard ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:Standard
+                ]
+            ) ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "status" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path adms:status ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "other identifier" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class adms:Identifier ;
+            sh:path adms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "type" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path dcterms:type ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "title" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "description" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "version" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcat:version ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "version notes" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path adms:versionNotes ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "provenance" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:ProvenanceStatement ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:ProvenanceStatement
+                ]
+            ) ;
+            sh:path dcterms:provenance ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "processing level" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path spase:processingLevel ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "landing page" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Document ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class foaf:Document
+                ]
+            ) ;
+            sh:path dcat:landingPage ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "issued" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:dateTime ;
+            sh:path dcterms:issued ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "publisher" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Organization ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class foaf:Organization
+                ]
+            ) ;
+            sh:path dcterms:publisher ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "creator" ;
+            sh:minCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:or ( 
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                    )
+                ]
+            ) ;
+            sh:path ( dcterms:creator [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "contributor" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:or ( 
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                    )
+                ]
+            ) ;
+            sh:path ( dcterms:contributor [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "qualified attribution" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class prov:Attribution ;
+            sh:path prov:qualifiedAttribution ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "contact point" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class vcard:Kind ;
+            sh:path dcat:contactPoint ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "funding" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class schema:MonetaryGrant ;
+            sh:path schema:funding ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "acknowledgement" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path schema:creditText ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "measurement type" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path spase:measurementType ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "phenomenon type" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path spase:phenomenonType ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "observed range" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ sh:class qudt:Quantity ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:or ( 
+                        [ sh:class skos:Concept ] 
+                        [ sh:class qudt:Quantity ]
+                    )
+                ]
+            ) ;
+            sh:path spase:observedRange ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "subject" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path dcterms:subject ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "temporal resolution" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:duration ;
+            sh:path dcat:temporalResolution ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "exposure" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:duration ;
+            sh:path spase:exposure ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "temporal coverage" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class dcterms:PeriodOfTime ;
+            sh:path dcterms:temporal ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "spatial coverage" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:Location ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:Location
+                ]
+            ) ;
+            sh:path dcterms:spatial ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "distribution" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class dcat:Distribution ;
+            sh:path dcat:distribution ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "qualified relation" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class dcat:Relationship ;
+            sh:path dcterms:qualifiedRelation ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "qualified relation" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class provone:Execution ;
+            sh:path prov:wasGeneratedBy ;
+            sh:severity sh:Violation
+        ] .
+
+
+
+
+
+spase:Person_Shape
+    a sh:NodeShape ;
+    rdfs:label "Person" ;
+    sh:targetClass foaf:Person ;
+    sh:severity sh:Violation ;
+    sh:message "Resource typed as foaf:Person must include either foaf:name or both foaf:givenName and foaf:familyName properties." ;
+    sh:or (
+        [
+            sh:property
+                [
+                    sh:name "given name" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path foaf:givenName 
+                ] ,
+                [
+                    sh:name "family name" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path foaf:familyName 
+                ] 
+        ]
+        [
+            sh:property
+                [
+                    sh:name "name" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path foaf:name 
+                ]
+        ]
+    );
+    sh:not [
+        sh:xone (
+            [
+                sh:property [
+                    sh:name "given name" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path foaf:givenName 
+                ] 
+            ]
+            [
+                sh:property [
+                    sh:name "family name" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path foaf:familyName 
+                ] 
+            ]
+        )
+    ];
+    sh:property
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "other identifier" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class adms:Identifier ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class adms:Identifier
+                ]
+            ) ;
+            sh:path adms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "email" ;
+            sh:datatype xsd:string ;
+            sh:pattern "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" ;
+            sh:path foaf:mbox ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "memberOf" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Organization ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class foaf:Organization
+                ]
+            ) ;
+            sh:path ( org:memberOf [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;            
+            sh:severity sh:Violation
+        ] .
+
+
+
+spase:Organization_Shape
+    a sh:NodeShape ;
+    rdfs:label "Organization" ;
+    sh:targetClass foaf:Organization ;
+    sh:property
+        [
+            sh:name "name" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path foaf:name ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "email" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:pattern "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" ;
+            sh:path foaf:mbox ;
+            sh:severity sh:Violation
+        ],
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "other identifier" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class adms:Identifier ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class adms:Identifier
+                ]
+            ) ;
+            sh:path adms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "memberOf" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Organization ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class foaf:Organization
+                ]
+            ) ;
+            sh:path ( org:memberOf [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;            
+            sh:severity sh:Violation
+        ] .
+
+spase:Attribution_Shape
+    a sh:NodeShape ;
+    rdfs:label "Attribution" ;
+    sh:targetClass prov:Attribution ;
+    sh:property
+        [
+            sh:name "agent" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:or ( 
+                        [ sh:class foaf:Person ] 
+                        [ sh:class foaf:Organization ]
+                    )
+                ]
+            ) ;
+            sh:path prov:agent ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "role" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcat:Role ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcat:Role
+                ]
+            ) ;
+            sh:path dcat:hadRole ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:Contact_Shape
+    a sh:NodeShape ;
+    rdfs:label "Contact" ;
+    sh:targetClass vcard:Kind ;
+    sh:property
+        [
+            sh:name "formatted name" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path vcard:fn ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "email" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:pattern "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" ;
+            sh:path vcard:hasEmail ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:RightsStatement_Shape
+    a sh:NodeShape ;
+    rdfs:label "Rights Statement" ;
+    sh:targetClass dcterms:RightsStatement ;
+    sh:property [
+        sh:name "label" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path rdfs:label ;
+        sh:severity sh:Violation
+    ] .
+
+
+spase:ProvenanceStatement_Shape
+    a sh:NodeShape ;
+    rdfs:label "Provenance Statement" ;
+    sh:targetClass dcterms:ProvenanceStatement ;
+    sh:property [
+        sh:name "label" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path rdfs:label ;
+        sh:severity sh:Violation
+    ] .
+
+
+spase:LicenseDocument_Shape
+    a sh:NodeShape ;
+    rdfs:label "License Document" ;
+    sh:targetClass dcterms:LicenseDocument ;
+    sh:property [
+        sh:name "title" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path dcterms:title ;
+        sh:severity sh:Violation
+    ] .
+
+
+spase:Concept_Shape
+    a sh:NodeShape ;
+    rdfs:label "Concept" ;
+    sh:targetClass skos:Concept ;
+    sh:severity sh:Violation ;
+    sh:property [
+        sh:name "preferred label" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path skos:prefLabel ;
+        sh:severity sh:Violation
+    ] ;
+    sh:not [
+        sh:xone (
+            [
+                sh:property [
+                    sh:name "notation" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path skos:notation
+                ]
+            ] 
+            [
+                sh:property [
+                    sh:name "in scheme" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:or (
+                        [ 
+                            sh:nodeKind sh:IRI ;
+                            sh:or (
+                                [ sh:class skos:ConceptScheme ] 
+                                [ 
+                                    sh:path rdf:type ;
+                                    sh:maxCount 0
+                                ]
+                            )
+                        ]
+                        [ 
+                            sh:nodeKind sh:BlankNode ;
+                            sh:class skos:ConceptScheme
+                        ]
+                    ) ;
+                    sh:path skos:inScheme
+                ]
+            ]
+        )
+    ] .
+
+
+spase:ConceptScheme_Shape
+    a sh:NodeShape ;
+    rdfs:label "Concept Scheme" ;
+    sh:targetClass skos:ConceptScheme ;
+    sh:property [
+        sh:name "title" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path dcterms:title ;
+        sh:severity sh:Violation
+    ] .
+
+
+spase:OtherIdentifier_Shape
+    a sh:NodeShape ;
+    rdfs:label "Other Identifier" ;
+    sh:targetClass adms:Identifier ;
+    sh:severity sh:Violation ;
+    sh:property [
+        sh:name "notation" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path skos:notation 
+    ] ;
+    sh:or (
+        [
+            sh:property [
+                sh:name "creator" ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:or (
+                    [ 
+                        sh:nodeKind sh:IRI ;
+                        sh:or (
+                            [ sh:class foaf:Organization ] 
+                            [ 
+                                sh:path rdf:type ;
+                                sh:maxCount 0
+                            ]
+                        )
+                    ]
+                    [ 
+                        sh:nodeKind sh:BlankNode ;
+                        sh:class foaf:Organization
+                    ]
+                ) ;
+                sh:path ( dcterms:creator [ sh:zeroOrMorePath rdf:rest ] rdf:first )
+            ]
+        ] 
+        [
+            sh:property [
+                sh:name "schema agency" ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:datatype xsd:string ;
+                sh:path adms:schemaAgency ;
+                sh:severity sh:Violation
+            ]
+        ] 
+    );
+    sh:property [
+        sh:name "version" ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path dcat:version ;
+        sh:severity sh:Violation
+    ] .
+
+
+spase:Role_Shape
+    a sh:NodeShape ;
+    rdfs:label "Role" ;
+    sh:targetClass dcat:Role ;
+    sh:severity sh:Violation ;
+    sh:property [
+        sh:name "preferred label" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path skos:prefLabel ;
+        sh:severity sh:Violation
+    ] ;
+    sh:not [
+        sh:xone (
+            [
+                sh:property [
+                    sh:name "notation" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path skos:notation
+                ]
+            ] 
+            [
+                sh:property [
+                    sh:name "in scheme" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:or (
+                        [ 
+                            sh:nodeKind sh:IRI ;
+                            sh:or (
+                                [ sh:class skos:ConceptScheme ] 
+                                [ 
+                                    sh:path rdf:type ;
+                                    sh:maxCount 0
+                                ]
+                            )
+                        ]
+                        [ 
+                            sh:nodeKind sh:BlankNode ;
+                            sh:class skos:ConceptScheme
+                        ]
+                    ) ;
+                    sh:path skos:inScheme
+                ]
+            ]
+        )
+    ] .
+
+
+spase:MonetaryGrant_Shape
+    a sh:NodeShape ;
+    rdfs:label "Monetary Grant" ;
+    sh:targetClass schema:MonetaryGrant ;
+    sh:property
+        [
+            sh:name "funder" ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class foaf:Organization ;
+            sh:path schema:funder ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "title" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "other identifier" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class adms:Identifier ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class adms:Identifier
+                ]
+            ) ;
+            sh:path adms:identifier ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:Quantity_Shape
+    a sh:NodeShape ;
+    rdfs:label "Quantity" ;
+    sh:targetClass qudt:Quantity ;
+    sh:property
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "preferred label" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path skos:prefLabel ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "description" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "order" ;
+            sh:datatype xsd:integer ;
+            sh:path qudt:order ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "unit" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class qudt:Unit ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class qudt:Unit
+                ]
+            ) ;
+            sh:path qudt:hasUnit ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "quantity kind" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class qudt:QuantityKind ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class qudt:QuantityKind
+                ]
+            ) ;
+            sh:path qudt:hasQuantityKind ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "quantity value" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class qudt:QuantityValue ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class qudt:QuantityValue
+                ]
+            ) ;
+            sh:path qudt:quantityValue ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "coordinate system" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path qudt:coordinateSystem ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:QuantityValue_Shape
+    a sh:NodeShape ;
+    rdfs:label "Quantity Value" ;
+    sh:targetClass qudt:QuantityValue ;
+    sh:property
+        [
+            sh:name "value" ;
+            sh:maxCount 1 ;
+            sh:or ( [ sh:datatype xsd:double ] [ sh:datatype xsd:integer ] ) ;
+            sh:path qudt:value ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "minimum inclusive" ;
+            sh:maxCount 1 ;
+            sh:or ( [ sh:datatype xsd:double ] [ sh:datatype xsd:integer ] ) ;
+            sh:path qudt:minInclusive ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "maximum inclusive" ;
+            sh:maxCount 1 ;
+            sh:or ( [ sh:datatype xsd:double ] [ sh:datatype xsd:integer ] ) ;
+            sh:path qudt:maxInclusive ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "unit" ;
+            sh:minCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class qudt:Unit ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class qudt:Unit
+                ]
+            ) ;
+            sh:path qudt:hasUnit ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:Unit_Shape
+    a sh:NodeShape ;
+    rdfs:label "Unit" ;
+    sh:targetClass qudt:Unit ;
+    sh:severity sh:Violation ;
+    sh:property [
+        sh:name "exact match" ;
+        sh:nodeKind sh:IRI ;
+        sh:path skos:exactMatch ;
+        sh:severity sh:Violation
+    ] ;
+    sh:or (
+        [
+            sh:property [
+                    sh:name "preferred label" ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                    sh:datatype xsd:string ;
+                    sh:path skos:prefLabel
+                ] 
+        ]
+        [
+            sh:property [
+                sh:name "notation" ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:datatype xsd:string ;
+                sh:path skos:notation
+            ]
+        ] 
+    ) ;
+    sh:not [
+            sh:xone (
+                [
+                    sh:property [
+                        sh:name "notation" ;
+                        sh:minCount 1 ;
+                        sh:maxCount 1 ;
+                        sh:datatype xsd:string ;
+                        sh:path skos:notation
+                    ]
+                ] 
+                [
+                    sh:property [
+                        sh:name "conforms to" ;
+                        sh:minCount 1 ;
+                        sh:maxCount 1 ;
+                        sh:or (
+                            [ 
+                                sh:nodeKind sh:IRI ;
+                                sh:or (
+                                    [ sh:class dcterms:Standard ] 
+                                    [ 
+                                        sh:path rdf:type ;
+                                        sh:maxCount 0
+                                    ]
+                                )
+                            ]
+                            [ 
+                                sh:nodeKind sh:BlankNode ;
+                                sh:class dcterms:Standard
+                            ]
+                        ) ;
+                        sh:path dcterms:conformsTo
+                    ]
+                ]
+            )
+        ] .
+
+
+
+spase:Standard_Shape
+    a sh:NodeShape ;
+    rdfs:label "Standard" ;
+    sh:targetClass dcterms:Standard ;
+    sh:property
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "title" ;
+            sh:minCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "version" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcat:version ;
+            sh:severity sh:Violation
+        ] .
+
+
+
+spase:PeriodOfTime_Shape
+    a sh:NodeShape ;
+    rdfs:label "Period Of Time" ;
+    sh:targetClass dcterms:PeriodOfTime ;
+    sh:property
+        [
+            sh:name "start date" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:dateTime ;
+            sh:path dcat:startDate ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "end date" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:dateTime ;
+            sh:path dcat:endDate ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "relative end date" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:datatype xsd:duration ;
+            sh:path spase:relativeEndDate ;
+            sh:severity sh:Violation
+        ]  .
+
+
+
+spase:Location_Shape
+    a sh:NodeShape ;
+    rdfs:label "Location" ;
+    sh:targetClass dcterms:Location ;
+    sh:property
+        [
+            sh:name "centroid" ;
+            sh:datatype geo:wktLiteral ;
+            sh:path dcat:centroid ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "bounding box" ;
+            sh:datatype geo:wktLiteral ;
+            sh:path dcat:bbox ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "geometry" ;
+            sh:datatype geo:wktLiteral ;
+            sh:path locn:geometry ;
+            sh:severity sh:Violation
+        ]  .
+
+
+spase:Coordinates_Shape
+    a sh:NodeShape ;
+    rdfs:label "Coordinates" ;
+    sh:targetClass qudt:Coordinates ;
+    sh:property
+        [
+            sh:name "element" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class qudt:Quantity ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class qudt:Quantity
+                ]
+            ) ;
+            sh:path ( qudt:element [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "coordinate system" ;
+            sh:minCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path qudt:coordinateSystem ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:Distribution_Shape
+    a sh:NodeShape ;
+    rdfs:label "Distribution" ;
+    sh:targetClass dcat:Distribution ;
+    sh:or (
+        [
+            sh:name "access URL" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcat:accessURL ;
+            sh:severity sh:Violation
+        ]
+        [
+            sh:minCount 1 ;
+            sh:name "access service" ;
+            sh:nodeKind sh:BlankNodeOrIRI;
+            sh:class dcat:DataService ;
+            sh:path dcat:accessService ;
+            sh:severity sh:Violation
+        ]
+    ) ;
+    sh:property
+        [
+            sh:name "title" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:maxCount 1 ;
+            sh:name "access rights" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:RightsStatement ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:RightsStatement
+                ]
+            ) ;
+            sh:path dcterms:accessRights ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:name "license" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:LicenseDocument ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:LicenseDocument
+                ]
+            ) ;
+            sh:path dcterms:license ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "format" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path dcterms:format ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "conforms to" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:Standard ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:Standard
+                ]
+            ) ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "byte size" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcat:byteSize ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:DataService_Shape
+    a sh:NodeShape ;
+    rdfs:label "Data Service" ;
+    sh:targetClass dcat:DataService ;
+    sh:property
+        [
+            sh:name "title" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "description" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "type" ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class skos:Concept ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class skos:Concept
+                ]
+            ) ;
+            sh:path dcterms:type ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "other identifier" ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:class adms:Identifier ;
+            sh:path adms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "conforms to" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcterms:Standard ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcterms:Standard
+                ]
+            ) ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "contact point" ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI;
+            sh:class vcard:Kind ;
+            sh:path dcat:contactPoint ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "serves dataset" ;
+            sh:node [
+                a sh:NodeShape ;
+                sh:class dcat:Dataset ;
+                sh:property [
+                    sh:path dcterms:identifier ;
+                    sh:minCount 1 
+                ] 
+            ] ;
+            sh:path dcat:servesDataset ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "endpoint URL" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcat:endpointURL ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "endpoint description" ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcat:endpointDescription ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "publisher" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class foaf:Organization ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class foaf:Organization
+                ]
+            ) ;
+            sh:path dcterms:publisher ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:Relationship_Shape
+    a sh:NodeShape ;
+    rdfs:label "Relationship" ;
+    sh:targetClass dcat:Relationship ;
+    sh:property
+        [
+            sh:name "relation" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path dcterms:relation ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "role" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class dcat:Role ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class dcat:Role
+                ]
+            ) ;
+            sh:path dcat:hadRole ;
+            sh:severity sh:Violation
+        ] .
+
+
+
+spase:Execution_Shape
+    a sh:NodeShape ;
+    rdfs:label "Execution" ;
+    sh:targetClass provone:Execution ;
+    sh:property
+        [
+            sh:name "plan" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class prov:Plan ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class prov:Plan
+                ]
+            ) ;
+            sh:path prov:hadPlan ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "used" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class prov:Entity ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class prov:Entity
+                ]
+            ) ;
+            sh:path prov:used ;
+            sh:severity sh:Violation
+        ] .
+
+
+
+
+
+
+
+
+
+
+spase:ObservationCollection_Shape
+    a sh:NodeShape ;
+    rdfs:label "ObservationCollection" ;
+    sh:targetClass sosa:ObservationCollection;
+    sh:property
+        [
+            sh:name "made by sensor" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class sosa:Sensor ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class sosa:Sensor
+                ]
+            ) ;
+            sh:path sosa:madeBySensor ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "has member" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class sosa:Observation ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class sosa:Observation
+                ]
+            ) ;
+            sh:path ( sosa:hasMember [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+            sh:severity sh:Violation
+        ] .
+
+
+
+spase:Observation_Shape
+    a sh:NodeShape ;
+    rdfs:label "Observation" ;
+    sh:targetClass sosa:Observation;
+    sh:property
+        [
+            sh:name "made by sensor" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class sosa:Sensor ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class sosa:Sensor
+                ]
+            ) ;
+            sh:path sosa:madeBySensor ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "observed property" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:and ( [sh:class sosa:Property] [sh:class iop:Variable] ) ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:and ( [sh:class sosa:Property] [sh:class iop:Variable] )
+                ]
+            ) ;
+            sh:path sosa:observedProperty ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "has result" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class qudt:Quantity ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class qudt:Quantity
+                ]
+            ) ;
+            sh:path sosa:hasResult ;
+            sh:severity sh:Violation
+        ] .
+
+
+
+spase:Sensor_Shape
+    a sh:NodeShape ;
+    rdfs:label "Sensor" ;
+    sh:targetClass sosa:Sensor ;
+    sh:property
+        [
+            sh:name "title" ;
+            sh:maxCount 1 ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "identifier" ;
+            sh:datatype xsd:string ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "other identifier" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class adms:Identifier ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class adms:Identifier
+                ]
+            ) ;
+            sh:path adms:identifier ;
+            sh:severity sh:Violation
+        ] .
+
+
+
+spase:Variable_Shape
+    a sh:NodeShape ;
+    rdfs:label "Variable" ;
+    sh:targetClass iop:Variable;
+    sh:property
+        [
+            sh:name "object of interest" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class iop:Entity ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class iop:Entity
+                ]
+            ) ;
+            sh:path iop:hasObjectOfInterest ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "property" ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class iop:Property ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class iop:Property
+                ]
+            ) ;
+            sh:path iop:hasProperty ;
+            sh:severity sh:Violation
+        ] ,
+        [
+            sh:name "constraint" ;
+            sh:or (
+                [ 
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                        [ sh:class iop:Constraint ] 
+                        [ 
+                            sh:path rdf:type ;
+                            sh:maxCount 0
+                        ]
+                    )
+                ]
+                [ 
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class iop:Constraint
+                ]
+            ) ;
+            sh:path iop:hasConstraint ;
+            sh:severity sh:Violation
+        ] .
+
+
+spase:Constraint_Shape
+    a sh:NodeShape ;
+    rdfs:label "Constraint" ;
+    sh:targetClass iop:Constraint;
+    sh:property [
+        sh:name "constrains" ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:path iop:constrains ;
+        sh:severity sh:Violation
+    ] .
+
+
+spase:Array_Shape
+    a sh:NodeShape ;
+    rdfs:label "Array" ;
+    sh:targetClass qudt:Array ;
+    sh:property
+        [
+            sh:name "dimensionality" ;
+            sh:datatype xsd:integer ;
+            sh:path qudt:dimensionality ;
+            sh:severity sh:Violation
+        ],
+        [
+            sh:name "dimensions" ;
+            sh:datatype xsd:integer ;
+            sh:path ( qudt:dimensions [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+            sh:severity sh:Violation
+        ],
+        [
+            sh:name "data order" ;
+            sh:nodeKind sh:IRI ;
+            sh:path qudt:dataOrder ;
+            sh:severity sh:Violation
+        ] .
