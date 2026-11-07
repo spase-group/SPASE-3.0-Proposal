@@ -193,8 +193,8 @@
             "@id": "dcat:endpointDescription",
             "@type": "@id"
         },
-        "dcterms:qualifiedRelation": {
-            "@id": "dcterms:qualifiedRelation",
+        "dcat:qualifiedRelation": {
+            "@id": "dcat:qualifiedRelation",
             "@type": "@id"
         },
         "dcterms:relation": {
@@ -1089,7 +1089,7 @@
                 },
                 "https://mms.gsfc.nasa.gov/about_mms.html"
             ],
-            "dcterms:qualifiedRelation": [
+            "dcat:qualifiedRelation": [
                 {
                     "@type": "dcat:Relationship",
                     "dcterms:relation": "https://sweap.cfa.harvard.edu/sweap_data_user_guide.pdf",

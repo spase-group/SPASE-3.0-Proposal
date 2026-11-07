@@ -668,7 +668,7 @@ spase:MainDataset_Shape
             sh:name "qualified relation" ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:class dcat:Relationship ;
-            sh:path dcterms:qualifiedRelation ;
+            sh:path dcat:qualifiedRelation ;
             sh:severity sh:Violation
         ] ,
         [

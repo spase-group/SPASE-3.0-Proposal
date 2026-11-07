@@ -193,8 +193,8 @@
             "@id": "dcat:endpointDescription",
             "@type": "@id"
         },
-        "dcterms:qualifiedRelation": {
-            "@id": "dcterms:qualifiedRelation",
+        "dcat:qualifiedRelation": {
+            "@id": "dcat:qualifiedRelation",
             "@type": "@id"
         },
         "dcterms:relation": {
@@ -900,7 +900,7 @@
         "dcterms:identifier": "https://helio.data.nasa.gov/mission/PUNCH"
        }
      ],
-     "dcterms:qualifiedRelation": [
+     "dcat:qualifiedRelation": [
         {
          "@type": "dcat:Relationship",
          "dcterms:relation": "https://punch.space.swri.edu/",
